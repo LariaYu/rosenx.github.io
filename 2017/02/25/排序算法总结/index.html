@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="排序算法总结本文中默认对数组从小到大排序，数组大小为$n​$。
+<meta name="description" content="排序算法总结本文中默认对数组从小到大排序，数组大小为$n$。
 基于比较的排序算法基于比较的排序算法复杂度下界是$O(nlgn)$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序算法总结">
 <meta property="og:url" content="http://rosen.xyz/2017/02/25/排序算法总结/index.html">
 <meta property="og:site_name" content="Rosen">
-<meta property="og:description" content="排序算法总结本文中默认对数组从小到大排序，数组大小为$n​$。
+<meta property="og:description" content="排序算法总结本文中默认对数组从小到大排序，数组大小为$n$。
 基于比较的排序算法基于比较的排序算法复杂度下界是$O(nlgn)$">
-<meta property="og:updated_time" content="2017-02-26T00:58:50.887Z">
+<meta property="og:updated_time" content="2017-02-26T01:08:39.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法总结">
-<meta name="twitter:description" content="排序算法总结本文中默认对数组从小到大排序，数组大小为$n​$。
+<meta name="twitter:description" content="排序算法总结本文中默认对数组从小到大排序，数组大小为$n$。
 基于比较的排序算法基于比较的排序算法复杂度下界是$O(nlgn)$">
 
 
@@ -329,7 +329,7 @@
       
 
       
-        <h1 id="排序算法总结"><a href="#排序算法总结" class="headerlink" title="排序算法总结"></a>排序算法总结</h1><p>本文中默认对数组从小到大排序，数组大小为$n​$。</p>
+        <h1 id="排序算法总结"><a href="#排序算法总结" class="headerlink" title="排序算法总结"></a>排序算法总结</h1><p>本文中默认对数组从小到大排序，数组大小为$n$。</p>
 <h2 id="基于比较的排序算法"><a href="#基于比较的排序算法" class="headerlink" title="基于比较的排序算法"></a>基于比较的排序算法</h2><p>基于比较的排序算法复杂度下界是$O(nlgn)$</p>
 <a id="more"></a>
 <h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><strong>算法思想</strong>：每次从未排序的序列中选择一个元素插入到已排序好的序列中。初始所有元素都处于未排序序列中，当未排序序列为空时，序列已排好。</p>
@@ -344,7 +344,7 @@
 <p>顺便说一下主定理，对于递归式$T(n)=aT(\frac{n}{b})+f(n)$，其时间复杂度为：</p>
 <ol>
 <li>若$n^{lg_ba}&gt;f(n)$，则复杂度为$n^{lg_ba}$</li>
-<li>若$n^{lg_ba}=f(n)$，则复杂度为$n^{lg_ba}lgn$</li>
+<li>若$n^{lg_ba}=f(n)$，则复杂度为$n^{log_ba}lgn$</li>
 <li>若$n^{lg_ba}&lt;f(n)$，则复杂度为$f(n)$</li>
 </ol>
 <p><em>这里的大小是指阶数的大小</em></p>
@@ -352,7 +352,8 @@
 <p>上述递归式的递归树深度为$log_bn$，叶子节点的个数为$a^{log_bn}$。</p>
 <p>因为叶子节点的时间复杂度$T(1) = O(1)$，故所有叶子节点复杂度之和为$O(a^{log_bn})=O(n^{log_ba})$(这个的证明方法是两边对$b$取$lg$)。</p>
 <p>每一层都有合并操作。第$i$层的合并复杂度为$a^if(\frac{n}{b^i})$，则所有合并操作的复杂度为$O(f(n))$。</p>
-<p>总体时间复杂度为这两部分的加和，哪部分的阶数高总体复杂度就由哪部分决定。</p>
+<p>总体时间复杂度为这两部分的加和，哪部分的阶数高总体复杂度就由哪部分决定。至于第二种情况，记住就可以了（算法导论上有数学证明）。</p>
+<p>在归并排序中，$n^{lg_ba}=n^{lg_22}=n$，与$f(n)$相同，则复杂度为$O(nlgn)$</p>
 </blockquote>
 <p><strong>额外开销</strong>：采用不用回写的方法实现，开销为$O(n)$，每次从一个数组导到另一个数组。</p>
 <p><strong>稳定性分析</strong>：合并两个数组的时候，因前一个数组的元素均出现在后一个数组之前，两者头节点取小于等于的那个可保证相同元素保持原始顺序，故是稳定的。</p>
