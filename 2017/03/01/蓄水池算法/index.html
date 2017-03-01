@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="动态规划,扫描线,STL,LeetCode,Hard,二分查找,算法," />
+  <meta name="keywords" content="随机,概率," />
 
 
 
@@ -88,19 +88,19 @@
 
 
 
-<meta name="description" content="题目及分析给一个非空 $ r \times c$ 的矩阵 $ r&amp;gt;&amp;gt;c $，找一个子矩阵使得该矩阵的和不超过给定的 $ k $（难度：hard）
-暴力方法： 枚举两个子矩阵的两个端点，复杂度 $ O(r^2c^2) $这个问题是另外几个问题的叠加">
+<meta name="description" content="问题描述问题：有一段很长整数流，不知道其长度，内存可能也不够存下所有数据。希望从这个整数流中抽样出$K$个整数，要求每个整数被抽样的概率相同。
+这种问题称之为蓄水池抽样问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 363">
-<meta property="og:url" content="http://rosen.xyz/2016/07/15/LeetCode-363/index.html">
+<meta property="og:title" content="蓄水池算法">
+<meta property="og:url" content="http://rosen.xyz/2017/03/01/蓄水池算法/index.html">
 <meta property="og:site_name" content="Rosen">
-<meta property="og:description" content="题目及分析给一个非空 $ r \times c$ 的矩阵 $ r&amp;gt;&amp;gt;c $，找一个子矩阵使得该矩阵的和不超过给定的 $ k $（难度：hard）
-暴力方法： 枚举两个子矩阵的两个端点，复杂度 $ O(r^2c^2) $这个问题是另外几个问题的叠加">
-<meta property="og:updated_time" content="2017-02-21T08:35:10.062Z">
+<meta property="og:description" content="问题描述问题：有一段很长整数流，不知道其长度，内存可能也不够存下所有数据。希望从这个整数流中抽样出$K$个整数，要求每个整数被抽样的概率相同。
+这种问题称之为蓄水池抽样问题。">
+<meta property="og:updated_time" content="2017-03-01T13:57:49.777Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 363">
-<meta name="twitter:description" content="题目及分析给一个非空 $ r \times c$ 的矩阵 $ r&amp;gt;&amp;gt;c $，找一个子矩阵使得该矩阵的和不超过给定的 $ k $（难度：hard）
-暴力方法： 枚举两个子矩阵的两个端点，复杂度 $ O(r^2c^2) $这个问题是另外几个问题的叠加">
+<meta name="twitter:title" content="蓄水池算法">
+<meta name="twitter:description" content="问题描述问题：有一段很长整数流，不知道其长度，内存可能也不够存下所有数据。希望从这个整数流中抽样出$K$个整数，要求每个整数被抽样的概率相同。
+这种问题称之为蓄水池抽样问题。">
 
 
 
@@ -121,9 +121,9 @@
 
 
 
-  <link rel="canonical" href="http://rosen.xyz/2016/07/15/LeetCode-363/"/>
+  <link rel="canonical" href="http://rosen.xyz/2017/03/01/蓄水池算法/"/>
 
-  <title> LeetCode 363 | Rosen </title>
+  <title> 蓄水池算法 | Rosen </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -263,7 +263,7 @@
             
             
               
-                LeetCode 363
+                蓄水池算法
               
             
           </h1>
@@ -275,8 +275,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-15T17:10:27+08:00" content="2016-07-15">
-              2016-07-15
+            <time itemprop="dateCreated" datetime="2017-03-01T18:55:35+08:00" content="2017-03-01">
+              2017-03-01
             </time>
           </span>
 
@@ -305,8 +305,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/15/LeetCode-363/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/15/LeetCode-363/" itemprop="commentsCount"></span>
+                <a href="/2017/03/01/蓄水池算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/01/蓄水池算法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -329,19 +329,41 @@
       
 
       
-        <h2 id="题目及分析"><a href="#题目及分析" class="headerlink" title="题目及分析"></a>题目及分析</h2><p>给一个非空 $ r \times c$ 的矩阵 $ r&gt;&gt;c $，找一个子矩阵使得该矩阵的和不超过给定的 $ k $（难度：hard）</p>
-<p>暴力方法： 枚举两个子矩阵的两个端点，复杂度 $ O(r^2c^2) $<br>这个问题是另外几个问题的叠加</p>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>问题：有一段很长整数流，不知道其长度，内存可能也不够存下所有数据。希望从这个整数流中抽样出$K$个整数，要求每个整数被抽样的概率相同。</p>
+<p>这种问题称之为蓄水池抽样问题。</p>
 <a id="more"></a>
-<h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>题意： 给定一个一维数组A，求解A中和最大的子序列</p>
-<p>思路： 动态规划，<code>d[i]</code>表示以<code>A[i]</code>为结尾的和最大序列的和，那么以<code>A[i+1]</code>结尾和最大序列则为：如果<code>d[i]&gt;0</code>,则序列接上<code>A[i]</code>,否则<code>A[i+1]</code>自己为和最大序列。转移公式为：<code>d[i+1] = d[isss] &gt; 0 ? d[i] + A[i+1], A[i+1]</code>。时间复杂度为 $ O(n) $。</p>
-<h2 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h2><p>题意： 求一个二维矩阵A的子矩阵，使得子矩阵的所有元素的和最大</p>
-<p>思路： 扫描线，每次固定两列L、R，表示子矩阵的左右两端，对于每一行求出L~R列的和(使用累积和相减)，即可得到一个一维数组<code>A[row]</code>,问题转换为即可转换为问题1。固定。时间复杂度为 $ min(O(c^2r), O(r^2c)) $ 。</p>
-<h2 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h2><p>题意： 给定一个一维数组A，求解A中和不超过k的最大子序列</p>
-<p>思路： 预处理一个累加和数组C，<code>C[i]</code>表示从<code>sum(A[0~i])</code>，则<code>sum(A[i~j]) = C[j] - C[i-1]</code>，问题可表述为：找到一对i，j使得<code>T = C[j] - C[i-1] &lt;= k</code>并且使T最大。 通过移项有： <code>C[j] - k &lt;= C[i-1]</code>, 问题转换为： 对与每个j，在集合<code>S = {0, C[1], C[2], ... C[j-1]}</code>中求一个小于 <code>C[j] - K</code>的最大值，如果使用二叉搜索树维护S，则该问题的复杂度为 $ O(\lg j) $。总体复杂度 $ O(n \lg n) $。</p>
-<h2 id="本题"><a href="#本题" class="headerlink" title="本题"></a>本题</h2><p>明白了以上问题的解法，本题将迎刃而解。</p>
-<p>首先，使用扫描线法每次固定两列 $ (r&gt;&gt;c) $ L、R，求出每一行L～R列的和得到一个一维数组A，使用问题3中的方法找出A中和小于但最接近k的子序列，总体时间复杂度为：$ O(c^2 r \lg r) $</p>
+<h2 id="最大堆解决"><a href="#最大堆解决" class="headerlink" title="最大堆解决"></a>最大堆解决</h2><blockquote>
+<p>如果一个数组是随机排列的，我们取前$k$个元素也是随机的，那么这$k$元素可以称之为一个随机抽样。</p>
+<p>​                                                                                ——非名家之言</p>
+</blockquote>
+<p>依以上所言，我们只需要得到整数流的一个随机排列就可以了。但是我们连长度$n$都不知道，怎么随机排列？</p>
+<p>我们一定要排列好所有元素吗？我们只需要抽样$k$个，因此我们只需要知道哪$k$个元素排在前面就可以。这是不是让你想起了这样一个问题：一堆数中取前$k$个最大的数。这个问题可以用堆解决，同样蓄水池抽样问题也可以用堆解决。</p>
+<p><strong>算法描述</strong>：维护一个大小为$k$的大顶堆，每次来一个数，随机生成一个<code>key</code>，如果当前元素的<code>key</code>比堆顶的元素要小，弹出堆顶元素，将当前元素和<code>key</code>加入堆中。最终堆里的元素是一个随机排列（因为<code>key</code>是随机生成的）里最小的前$k$个数。这$k$个数就是一个随机抽样。（也可以用小顶堆，那就是取最大的的$k$个数）</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; reservoirSamplingByHeap(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums, <span class="keyword">int</span> k) &#123;</div><div class="line">    priority_queue&lt; pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &gt; heap;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">        <span class="keyword">int</span> r = rand(); <span class="comment">// 随机生成一个key</span></div><div class="line">        <span class="keyword">if</span> (heap.size() &lt; k) heap.push(make_pair(nums[i], r));</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (heap.top().second &gt; r) &#123;</div><div class="line">                heap.pop();</div><div class="line">                heap.push(make_pair(nums[i], r));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sample;</div><div class="line">    <span class="keyword">while</span> (!heap.empty()) &#123;</div><div class="line">        sample.push_back(heap.top().first);</div><div class="line">        heap.pop();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> sample;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>时间复杂度：$nlgk$</p>
+<h2 id="更快的解法"><a href="#更快的解法" class="headerlink" title="更快的解法"></a>更快的解法</h2><p>$nlgk$已经足够快，但是也有更快的解法，也相当巧妙。</p>
+<p><strong>算法描述</strong>：维护一个大小为$k$的蓄水池，初始将前$k$个元素放入蓄水池中，从第$k+1$个元素开始，每个元素以$\frac{k}{i}$的概率选中，随机替换蓄水池中的一个元素。通过这种方式每个元素被选取到的概率相等。</p>
+<p><strong>证明</strong>：</p>
+<p>我们先从最简单的问题入手：$k=1$</p>
+<p>则第$i$个元素被选取的概率是$\frac{1}{i}$，但是现在被选取了并不代表后来不会被替换掉，所以元素$i$最终被选取为被选取的概率乘上不被替换的概率：<br>$$<br>P(i)=\frac{1}{i}\times\frac{i}{i+1}\times\cdots\times\frac{n-1}{n}=\frac{1}{n}<br>$$<br>对于$k&gt;1$，要分两种情况，</p>
+<ol>
+<li><p>对于$i&gt;k$，其最终被选中不仅要求扫描到他时被选中，还要求后来者不被选中或即使选中也不会将它替换。因此对于$j&gt;i$，其不会对$i$构成威胁的概率是：<br>$$<br>F(j)=\frac{k}{j}\times\frac{k-1}{k}+\frac{j-k}{j}=\frac{j-1}{j}<br>$$<br>则$i$被选中的概率：<br>$$<br>\begin{align}<br>P(i)<br>&amp;= \frac{k}{i}\times F(i+1) \times F(i+2) \times\cdots\times F(n) \\<br>&amp;= \frac{k}{i} \times \frac{i}{i+1}\times\frac{i+1}{i+2}\times\cdots\times\frac{n-1}{n}\\<br>&amp;=\frac{k}{n}<br>\end{align}<br>$$</p>
+</li>
+<li><p>对于$i&lt;=k$，其最终被选中要求第$k$个元素后面的元素不被选中，或者选中但不替换到它。对与$j&gt;k$，其不会对$i$构成威胁的概率等同于$F(j)$。</p>
+<p>则$i$被选中的概率为：<br>$$<br>\begin{align}<br>P(i)<br>&amp;=F(k+1)\times F(k+2) \times F(k+3) \times \cdots\times F(n) \\<br>&amp;=\frac{k}{k+1}\times\frac{k+1}{k+2}\times\cdots\times\frac{n-1}{n}\\<br>&amp;=\frac{k}{n}<br>\end{align}<br>$$</p>
+</li>
+</ol>
+<p>证毕</p>
 <p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxSumSubmatrix</span><span class="params">(<span class="built_in">vector</span>&lt; <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;&amp; matrix, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> row = matrix.size(), col = matrix[<span class="number">0</span>].size();</div><div class="line">        <span class="keyword">int</span> cum_matrix[row][col];</div><div class="line">        <span class="comment">//预处理，对每行累积求和</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; row; i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; col; j++)&#123;</div><div class="line">                <span class="keyword">if</span>(j == <span class="number">0</span>)cum_matrix[i][j] = matrix[i][j];</div><div class="line">                <span class="keyword">else</span> cum_matrix[i][j] = cum_matrix[i][j - <span class="number">1</span>] + matrix[i][j];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> max_sum = <span class="number">-0x7fffffff</span>;</div><div class="line">        <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; cum_sum;</div><div class="line">        <span class="comment">//扫描线，固定两列，变成一个在以为数组中寻找最大不超过k的子序列</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; col; i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; col; j++)&#123;</div><div class="line">                <span class="keyword">int</span> f, tmp = <span class="number">0</span>;</div><div class="line">                cum_sum.clear();</div><div class="line">                <span class="comment">// 二分</span></div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> s = <span class="number">0</span>; s &lt; row; s++)&#123;</div><div class="line">                    cum_sum.insert(tmp);</div><div class="line">                    <span class="keyword">if</span>(i == <span class="number">0</span>) f = cum_matrix[s][j];</div><div class="line">                    <span class="keyword">else</span> f = cum_matrix[s][j] - cum_matrix[s][i - <span class="number">1</span>];</div><div class="line">                    tmp += f;</div><div class="line">                    <span class="comment">//set本身有序，可使用STL中upper_bound函数</span></div><div class="line">                    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator iter = cum_sum.upper_bound(tmp-k<span class="number">-1</span>);</div><div class="line">                    <span class="keyword">if</span>(iter != cum_sum.end())&#123;</div><div class="line">                        max_sum = max(max_sum, tmp - *iter);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> max_sum;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; reservoirSampling(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums, <span class="keyword">int</span> k) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = k; i &lt; nums.size(); i++) &#123;</div><div class="line">        <span class="keyword">int</span> r = rand() % (i + <span class="number">1</span>);</div><div class="line">      	<span class="comment">// k/i 的概率</span></div><div class="line">        <span class="keyword">if</span> (r &lt; k) swap(nums[r], nums[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(nums.begin(), nums.begin() + k);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="分布式抽样"><a href="#分布式抽样" class="headerlink" title="分布式抽样"></a>分布式抽样</h2><p><strong>现在数据量太大，不可能所有数据都放在一台服务器上，如果输入放在$m$台机器上该如何抽样？</strong></p>
+<p>不管环境怎么变，问题的本质没有变：产生一个随机的序列，取序列的前$k$个数。最大堆方法可以适用与这种情况。</p>
+<p><strong>算法描述</strong>：我们在$m$台机器上分别用最大堆方法抽样出最大的$k$个元素，然后将这$mk$个元素发送到一台机器上再用最大堆方法抽样。</p>
+<p>通过这种方法，我们得到的还是随机排列中最小的$k$个元素，这是一个随机抽样。</p>
+<h2 id="更进一步"><a href="#更进一步" class="headerlink" title="更进一步"></a>更进一步</h2><p><strong>如果$k$太大，内存放不下怎么办？</strong></p>
+<p><strong>算法描述</strong>：可以设置$L$个桶（桶可以放到外存），每次随机的时候不仅产生一个<code>key</code>，同时产生一个桶号$l$，将数据分配到$l$号桶中。默认小号桶比大号桶数据小。统计前$j$个桶的所有元素的个数$S(j)$，如果$j$是第一个$S(j)&gt;k$的桶，在第$j$个桶中抽样$k-S(j-1)$个元素（排个序就行）。因为桶足够多，每个桶中的元素足够少，可以加载到内存。</p>
+<p>因为通过排序的关键了$(l,r)$是随机产生的，该排列也是一个随机排列。</p>
 
       
     </div>
@@ -364,19 +386,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/动态规划/" rel="tag">#动态规划</a>
+            <a href="/tags/随机/" rel="tag">#随机</a>
           
-            <a href="/tags/扫描线/" rel="tag">#扫描线</a>
-          
-            <a href="/tags/STL/" rel="tag">#STL</a>
-          
-            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
-          
-            <a href="/tags/Hard/" rel="tag">#Hard</a>
-          
-            <a href="/tags/二分查找/" rel="tag">#二分查找</a>
-          
-            <a href="/tags/算法/" rel="tag">#算法</a>
+            <a href="/tags/概率/" rel="tag">#概率</a>
           
         </div>
       
@@ -385,17 +397,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/14/序/" rel="next" title="序">
-                <i class="fa fa-chevron-left"></i> 序
+              <a href="/2017/02/25/排序算法总结/" rel="next" title="排序算法总结">
+                <i class="fa fa-chevron-left"></i> 排序算法总结
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/31/从线性回归谈机器学习的几个重要问题/" rel="prev" title="从线性回归谈机器学习的几个重要问题">
-                从线性回归谈机器学习的几个重要问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -410,10 +418,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/07/15/LeetCode-363/"
-     data-title="LeetCode 363"
+        <div class="ds-share flat" data-thread-key="2017/03/01/蓄水池算法/"
+     data-title="蓄水池算法"
      data-content=""
-     data-url="http://rosen.xyz/2016/07/15/LeetCode-363/">
+     data-url="http://rosen.xyz/2017/03/01/蓄水池算法/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -440,8 +448,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/15/LeetCode-363/"
-           data-title="LeetCode 363" data-url="http://rosen.xyz/2016/07/15/LeetCode-363/">
+      <div class="ds-thread" data-thread-key="2017/03/01/蓄水池算法/"
+           data-title="蓄水池算法" data-url="http://rosen.xyz/2017/03/01/蓄水池算法/">
       </div>
     
   </div>
@@ -543,7 +551,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目及分析"><span class="nav-number">1.</span> <span class="nav-text">题目及分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题1"><span class="nav-number">2.</span> <span class="nav-text">问题1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题2"><span class="nav-number">3.</span> <span class="nav-text">问题2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题3"><span class="nav-number">4.</span> <span class="nav-text">问题3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本题"><span class="nav-number">5.</span> <span class="nav-text">本题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大堆解决"><span class="nav-number">2.</span> <span class="nav-text">最大堆解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更快的解法"><span class="nav-number">3.</span> <span class="nav-text">更快的解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式抽样"><span class="nav-number">4.</span> <span class="nav-text">分布式抽样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更进一步"><span class="nav-number">5.</span> <span class="nav-text">更进一步</span></a></li></ol></div>
             
           </div>
         </section>
