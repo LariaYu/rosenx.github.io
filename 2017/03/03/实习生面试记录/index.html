@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="机器学习,梯度下降法,线性模型,逻辑回归,最大似然," />
+  <meta name="keywords" content="实习,面试," />
 
 
 
@@ -88,18 +88,19 @@
 
 
 
-<meta name="description" content="广义线性模型上一篇文章中介绍了线性模型：$$    y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$">
+<meta name="description" content="3月份面试应该会多起来（希望如此..），将持续更新
+谷歌一月份开始投简历，只有谷歌确认要面我。所以请接受我的处女面吧~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="广义线性模型与逻辑回归">
-<meta property="og:url" content="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/index.html">
+<meta property="og:title" content="实习生面试记录">
+<meta property="og:url" content="http://rosen.xyz/2017/03/03/实习生面试记录/index.html">
 <meta property="og:site_name" content="Rosen">
-<meta property="og:description" content="广义线性模型上一篇文章中介绍了线性模型：$$    y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$">
-<meta property="og:image" content="http://rosen.xyz/./sigmoid.png">
-<meta property="og:updated_time" content="2017-02-21T08:35:10.066Z">
+<meta property="og:description" content="3月份面试应该会多起来（希望如此..），将持续更新
+谷歌一月份开始投简历，只有谷歌确认要面我。所以请接受我的处女面吧~">
+<meta property="og:updated_time" content="2017-03-03T07:37:56.992Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="广义线性模型与逻辑回归">
-<meta name="twitter:description" content="广义线性模型上一篇文章中介绍了线性模型：$$    y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$">
-<meta name="twitter:image" content="http://rosen.xyz/./sigmoid.png">
+<meta name="twitter:title" content="实习生面试记录">
+<meta name="twitter:description" content="3月份面试应该会多起来（希望如此..），将持续更新
+谷歌一月份开始投简历，只有谷歌确认要面我。所以请接受我的处女面吧~">
 
 
 
@@ -120,9 +121,9 @@
 
 
 
-  <link rel="canonical" href="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/"/>
+  <link rel="canonical" href="http://rosen.xyz/2017/03/03/实习生面试记录/"/>
 
-  <title> 广义线性模型与逻辑回归 | Rosen </title>
+  <title> 实习生面试记录 | Rosen </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +263,7 @@
             
             
               
-                广义线性模型与逻辑回归
+                实习生面试记录
               
             
           </h1>
@@ -274,8 +275,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-07T16:48:54+08:00" content="2016-08-07">
-              2016-08-07
+            <time itemprop="dateCreated" datetime="2017-03-03T14:10:22+08:00" content="2017-03-03">
+              2017-03-03
             </time>
           </span>
 
@@ -288,8 +289,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/笔试-面试/" itemprop="url" rel="index">
+                    <span itemprop="name">笔试&面试</span>
                   </a>
                 </span>
 
@@ -304,8 +305,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/07/广义线性模型与逻辑回归/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/广义线性模型与逻辑回归/" itemprop="commentsCount"></span>
+                <a href="/2017/03/03/实习生面试记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/03/实习生面试记录/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -328,55 +329,41 @@
       
 
       
-        <h3 id="广义线性模型"><a href="#广义线性模型" class="headerlink" title="广义线性模型"></a>广义线性模型</h3><p>上一篇文章中介绍了线性模型：<br>$$<br>    y = \theta ^ \mathrm{T} x \tag{1}<br>$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：<br>$$<br>    \ln{y} = \theta ^ \mathrm{T} x \tag{2}<br>$$更一般地，考虑<strong>单调可微</strong>函数 $ f(\cdot) $，令<br>$$<br>    y = f ^ {-1} (\theta ^ \mathrm{T} x) \tag{3}<br>$$即可得到<strong>广义线性模型</strong>。其中 $ f(\cdot) $ 的作用是联系模型输出与样例真实标记，称之为联系函数。</p>
+        <p>3月份面试应该会多起来（希望如此..），将持续更新</p>
+<h2 id="谷歌"><a href="#谷歌" class="headerlink" title="谷歌"></a>谷歌</h2><p>一月份开始投简历，只有谷歌确认要面我。所以请接受我的处女面吧~</p>
 <a id="more"></a>
-<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>根据上面理论，如果能找到一个函数使得线性回归产生的预测值 $ z = \theta ^ {T} x $ 映射到真实标记 $ \lbrace 0, 1 \rbrace $ 中，即可将线性模型用于分类任务。最理想的是单位阶跃函数：<br>$$<br>    y =<br>    \begin{cases}<br>    0,  &amp; \text{ $ z $ &lt; 0 } \\<br>    0.5, &amp; \text{ $ z $ = 0}  \\<br>    1, &amp; \text{ $ z $ &gt; 0} \\<br>    \end{cases}<br>    \tag{4}<br>$$但是该函数不可导，不能作为式（3）中的 $ f ^ {-1} (\cdot) $。Sigmoid函数是一个常用的替代方案：<br>$$<br>    g(z) = \frac {1} {1 + e ^ {-z}} \tag{5}<br>$$该函数将$ z $映射到 $ (0, 1) $ 之间，$ g(0) = 0.5 $，其函数如下图所示：</p>
-<p><div align="center"><br>    <img src="./sigmoid.png" alt="sigmoid函数" align="center"><br></div><br>可认为$ g(z) $的值为样本属于正类的概率，则若 $ z &gt; 0.5$，则判定该样本为正类，$ z &lt; 0.5 $判定该样本为负类。将 $ g(z) $ 作为 $f ^ {-1}$ 代入式（3）中得到假设函数：<br>$$<br>    h(x) = \frac {1} {1 + e ^ {-\theta ^ \mathrm{T} x}} \tag{6}<br>$$该模型便称之为<strong>逻辑回归</strong>。剩下的问题就是求解 $ \theta $了。</p>
-<h3 id="最大似然"><a href="#最大似然" class="headerlink" title="最大似然"></a>最大似然</h3><p>上节提到逻辑回归的模型输出 $ h(x) $ 可看作样本 $x$ 属于正类的后验概率，那么属于负类的后验概率自然是 $ 1 - h(x) $，用概率的形式可表示为：<br>
-$$
-\begin{align}
-    &p(y = 1 | x; \theta) = h(x)   \\\
-    &p(y = 0 | x; \theta) = 1 - h(x)
-\end{align}\tag{7}
-$$
-于是求解 $ \theta $ 相当于参数估计，可用最大似然法。
-
-给定数据集 $ \lbrace (x_ i, y_ i) \rbrace _{i = 1} ^ {m}$，似然函数为：
-$$
-    l(\theta) = \sum_ {i = 1} ^ {m} \ln{p(y_ i|x_ i; \theta)} \tag{8}
-$$其中：
-$$
-    \ln{p(y_ i|x_ i; \theta)} = 
-    \begin{cases}
-    \ln{p(y_ i = 1| x_ i; \theta)} = \ln{h(x ^ {i})}, &\text{ $ y_ i $ = 1 } \\
-    \ln{p(y_ i = 0| x_ i; \theta)} = \ln{(1 - h(x ^ {i}))}, &\text{ $ y_ i $ = 0 }
-    \end{cases}
-    \tag {9}
-$$
-根据式（9），式（8）可重写为：
-$$
-    l(\theta) = 
-    \sum_ {i = 1} ^ {m} y_ i \ln{h(x ^ {i})} + (1 - y_ i) \ln {(1 - h(x ^ {i}))} \tag{10}
-$$
-问题即变成：
-$$
-    \max_ {\theta} l(\theta) \tag{11}
-$$令 $ J(\theta) = -l(\theta) $，式（11）等同于：
-$$
-    \min_ {\theta} J(\theta) = 
-    \sum_ {i = 1} ^ {m} -y_ i \ln{h(x ^ {i})} - (1 - y_ i) \ln {(1 - h(x ^ {i}))} \tag{12}
-$$因为式（12）中的两项对于每个 $ i $ 不能同时取到，并且 $ -\ln{x} $ 与 $ -\ln{(1 - x)} $均为单调函数，故 $ J(\theta) $ 为凸函数（凸函数的线性叠加也是凸函数），可用梯度下降法求得最优解。
-
-其过程为：
-$$
-\begin{align}
-    &\text{Repeat until convergence}\lbrace\\
-    &\qquad \theta_ j = \theta_ j - \alpha \sum_ {i = 1} ^ {m} (h(x^{i}) - y ^ {i}) x_ {j} ^ {i} 
-    &\qquad(j = 0,1,2,\cdots,n) \\
-    &\rbrace\\
-\end{align}
-$$
-</p>
+<h3 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h3><p>上来面试官先介绍了一下面试流程，然后叫我做下自我介绍。因为提前写了，所以挺流畅。然后开始问问题：</p>
+<ol>
+<li><p>最让你印象深刻的项目是什么?怎么做的？</p>
+<p>我说了AR地球仪这个项目，项目是干什么的，怎么实现的。面试的时候还是有些紧张，将CNN那部分忘了，只是简单介绍了SIFT+BOW，SVM方案。后来想想，这部分可以多说说。</p>
+</li>
+<li><p>针对上面的项目，问如果有一个和地球仪很像的球状物怎么办，你们是怎么区分的？</p>
+<p>我说了one class svm，说实际中也没有专门正对球状物做实验，但是一般办公室环境的物品不会被识别成地球仪。他说哦知道了，也没有深究。</p>
+</li>
+<li><p>你的技能了写了熟悉常用机器学习算法，你跟我说下Logistic Regression吧？</p>
+<p>我简要说了一下，中间提到了线性回归，有了下面一问。</p>
+</li>
+<li><p>LR和线性回归有什么区别</p>
+<p>LR是个分类器，线性回归是做回归的</p>
+</li>
+</ol>
+<p>以上问题感觉就是给我放松的（大约15分钟），面试官也没有深究。重点是下面的编程题：</p>
+<blockquote>
+<p>给你一串字符串，删除其中的大写A，把B复制两遍，不能开额外空间。</p>
+</blockquote>
+<p>听到这个问题就感觉熟，在剑指offer上有个类似的题目，剑指offer上的题是将字符串中的空格替换成<code>%20</code>，没有删除字符这个要求。</p>
+<p>我问他如果转换后长度大于原始长度怎么处理，他说报异常。</p>
+<p>我记得剑指，offer上的题是先统计空格的个数，计算出转换后的数组长度。然后开始从后扫描，挪动。</p>
+<p>我依照这个思路想了，实际也画了几个例子，觉得可行。就跟面试官说有了大体思路（太匆忙了，应该仔细想想），讲了一下，在中间突然想到一个反例，面试官也想到了，我说完他就问我这样做有什么问题。我说这样有可能会覆盖一些元素：</p>
+<blockquote>
+<p>对于CAABB，依上面的思路最后一个B会覆盖点前面一个B</p>
+</blockquote>
+<p>然后想怎么解决，按理说应该很容易想到先删除A再依照上面的思路做，但是当时就是想不到，尝试了几种方法都不能解决这个问题。后来时间有些不够，面试官开始提示。他说先删除A，一开始没领会面试官的意思（觉得当时脑袋短路了），一直在纠结删除完后B的位置（现在也不理解当时为什么会纠结这个问题）。后来终于明白了什么意思，开始写代码。但是时间真的不够了，只写了删除A的函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 面试的时候写的代码</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">transformString</span><span class="params">(<span class="keyword">char</span> str[], <span class="keyword">int</span> length)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> countA = <span class="number">0</span>, countB = <span class="number">0</span>, lenAfter = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</div><div class="line">        <span class="keyword">if</span>(str[i] == <span class="string">'A'</span>) countA++;</div><div class="line">        <span class="keyword">if</span>(str[i] == <span class="string">'B'</span>) countB++;</div><div class="line">    &#125;</div><div class="line">    lenAfter = length - countA + countB;</div><div class="line">    <span class="keyword">if</span>(lenAfter &gt; length) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">std</span>::exception();</div><div class="line">    &#125;</div><div class="line">    remove(str, length, <span class="string">'A'</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">char</span> str[], <span class="keyword">int</span> length, <span class="keyword">char</span> c)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> pQuick = <span class="number">0</span>, pSlow = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(pQuick &lt; length) &#123;</div><div class="line">        <span class="keyword">if</span>(str[pQuick] != c)&#123;</div><div class="line">            <span class="keyword">while</span>(pSlow &lt; pQuick &amp;&amp; str[pSlow] != c) pSlow++;</div><div class="line">            <span class="keyword">if</span>(pSlow &lt; pQuick) str[pSlow++] = str[pQuick];</div><div class="line">        &#125;</div><div class="line">        pQuick++;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>用了两个指针，前一个指针寻找非A的元素，后一个指针找A，都找到后将非A元素复制到A上。当时觉得很对，用CAABB这个样例测也没错。然而CAABBB怎么办呢?</p>
+<p>面试官看了我的代码，问什么意思，然后问我复杂度，我说$n^2$。后来想根本不必要这样，直接慢指针维护下一个非A字符要放入的位置，$O(n)$就可以做完。</p>
+<p>后来面试官问我还有什么问题，我真的超想问他觉得我面的怎么样，忍住了。我问他因为一些原因谷歌的主要业务不能在国内开展，那谷歌中国在中国的主要业务是什么呢？他跟我讲了很多，说谷歌中国的业务都是国际化的，谷歌北京主要负责输入法和基础平台，谷歌上海主要负责海量广告的存储和投放。</p>
+<p>总而言之，现在想来这个面试真是太失败了，感觉后面做题完全不在状态。估计是跪了，等结果中。</p>
 
       
     </div>
@@ -399,15 +386,9 @@ $$
       
         <div class="post-tags">
           
-            <a href="/tags/机器学习/" rel="tag">#机器学习</a>
+            <a href="/tags/实习/" rel="tag">#实习</a>
           
-            <a href="/tags/梯度下降法/" rel="tag">#梯度下降法</a>
-          
-            <a href="/tags/线性模型/" rel="tag">#线性模型</a>
-          
-            <a href="/tags/逻辑回归/" rel="tag">#逻辑回归</a>
-          
-            <a href="/tags/最大似然/" rel="tag">#最大似然</a>
+            <a href="/tags/面试/" rel="tag">#面试</a>
           
         </div>
       
@@ -416,17 +397,13 @@ $$
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/31/从线性回归谈机器学习的几个重要问题/" rel="next" title="从线性回归谈机器学习的几个重要问题">
-                <i class="fa fa-chevron-left"></i> 从线性回归谈机器学习的几个重要问题
+              <a href="/2017/03/02/二分查找总结/" rel="next" title="二分查找总结">
+                <i class="fa fa-chevron-left"></i> 二分查找总结
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/14/《代码整洁之道》读书笔记（一）/" rel="prev" title="《代码整洁之道》读书笔记（一）——命名与函数">
-                《代码整洁之道》读书笔记（一）——命名与函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,10 +418,10 @@ $$
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/08/07/广义线性模型与逻辑回归/"
-     data-title="广义线性模型与逻辑回归"
+        <div class="ds-share flat" data-thread-key="2017/03/03/实习生面试记录/"
+     data-title="实习生面试记录"
      data-content=""
-     data-url="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/">
+     data-url="http://rosen.xyz/2017/03/03/实习生面试记录/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -471,8 +448,8 @@ $$
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/07/广义线性模型与逻辑回归/"
-           data-title="广义线性模型与逻辑回归" data-url="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/">
+      <div class="ds-thread" data-thread-key="2017/03/03/实习生面试记录/"
+           data-title="实习生面试记录" data-url="http://rosen.xyz/2017/03/03/实习生面试记录/">
       </div>
     
   </div>
@@ -574,7 +551,7 @@ $$
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#广义线性模型"><span class="nav-number">1.</span> <span class="nav-text">广义线性模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑回归"><span class="nav-number">2.</span> <span class="nav-text">逻辑回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大似然"><span class="nav-number">3.</span> <span class="nav-text">最大似然</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#谷歌"><span class="nav-number">1.</span> <span class="nav-text">谷歌</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面"><span class="nav-number">1.1.</span> <span class="nav-text">一面</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
