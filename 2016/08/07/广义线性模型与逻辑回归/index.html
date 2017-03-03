@@ -2,11 +2,13 @@
 
 
 
+  
 
-<html class="theme-next mist">
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -25,9 +27,12 @@
 
 
 
+
+
+
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -67,9 +72,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="机器学习,梯度下降法,线性模型,逻辑回归,最大似然," />
@@ -81,46 +86,57 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="广义线性模型上一篇文章中介绍了线性模型：$$    y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$">
+<meta name="description" content="广义线性模型上一篇文章中介绍了线性模型：$$y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$    y">
 <meta property="og:type" content="article">
 <meta property="og:title" content="广义线性模型与逻辑回归">
 <meta property="og:url" content="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/index.html">
 <meta property="og:site_name" content="Rosen">
-<meta property="og:description" content="广义线性模型上一篇文章中介绍了线性模型：$$    y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$">
+<meta property="og:description" content="广义线性模型上一篇文章中介绍了线性模型：$$y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$    y">
 <meta property="og:image" content="http://rosen.xyz/./sigmoid.png">
-<meta property="og:updated_time" content="2017-02-21T08:35:10.066Z">
+<meta property="og:updated_time" content="2017-03-03T09:24:40.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="广义线性模型与逻辑回归">
-<meta name="twitter:description" content="广义线性模型上一篇文章中介绍了线性模型：$$    y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$">
+<meta name="twitter:description" content="广义线性模型上一篇文章中介绍了线性模型：$$y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$    y">
 <meta name="twitter:image" content="http://rosen.xyz/./sigmoid.png">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
-    motion: false,
+    motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/"/>
+
+
+
+
 
   <title> 广义线性模型与逻辑回归 | Rosen </title>
 </head>
@@ -131,15 +147,19 @@
 
 
 
+
+
   <script type="text/javascript">
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?1613fa01ed708dc95bd2f373215ba3b4";
+      hm.src = "https://hm.baidu.com/hm.js?1613fa01ed708dc95bd2f373215ba3b4";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
 
 
 
@@ -157,25 +177,29 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Rosen</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rosen</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-  <p class="site-subtitle"></p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -232,6 +256,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -245,13 +271,23 @@
     
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rosen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rosen">
+    </span>
 
     
       <header class="post-header">
@@ -270,24 +306,36 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-07T16:48:54+08:00" content="2016-08-07">
-              2016-08-07
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-07T16:48:54+08:00">
+                2016-08-07
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/机器学习/" itemprop="url" rel="index">
                     <span itemprop="name">机器学习</span>
                   </a>
@@ -295,7 +343,6 @@
 
                 
                 
-
               
             </span>
           
@@ -303,20 +350,26 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/08/07/广义线性模型与逻辑回归/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/广义线性模型与逻辑回归/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/广义线性模型与逻辑回归/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
@@ -328,10 +381,10 @@
       
 
       
-        <h3 id="广义线性模型"><a href="#广义线性模型" class="headerlink" title="广义线性模型"></a>广义线性模型</h3><p>上一篇文章中介绍了线性模型：<br>$$<br>    y = \theta ^ \mathrm{T} x \tag{1}<br>$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：<br>$$<br>    \ln{y} = \theta ^ \mathrm{T} x \tag{2}<br>$$更一般地，考虑<strong>单调可微</strong>函数 $ f(\cdot) $，令<br>$$<br>    y = f ^ {-1} (\theta ^ \mathrm{T} x) \tag{3}<br>$$即可得到<strong>广义线性模型</strong>。其中 $ f(\cdot) $ 的作用是联系模型输出与样例真实标记，称之为联系函数。</p>
+        <h3 id="广义线性模型"><a href="#广义线性模型" class="headerlink" title="广义线性模型"></a>广义线性模型</h3><p>上一篇文章中介绍了线性模型：<br>$$<br>y = \theta ^ \mathrm{T} x \tag{1}<br>$$<br>该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：<br>$$<br>    \ln{y} = \theta ^ \mathrm{T} x \tag{2}<br>$$<br>更一般地，考虑<strong>单调可微</strong>函数 $ f(\cdot) $，令<br>$$<br>    y = f ^ {-1} (\theta ^ \mathrm{T} x) \tag{3}<br>$$<br>即可得到<strong>广义线性模型</strong>。其中 $ f(\cdot) $ 的作用是联系模型输出与样例真实标记，称之为联系函数。</p>
 <a id="more"></a>
-<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>根据上面理论，如果能找到一个函数使得线性回归产生的预测值 $ z = \theta ^ {T} x $ 映射到真实标记 $ \lbrace 0, 1 \rbrace $ 中，即可将线性模型用于分类任务。最理想的是单位阶跃函数：<br>$$<br>    y =<br>    \begin{cases}<br>    0,  &amp; \text{ $ z $ &lt; 0 } \\<br>    0.5, &amp; \text{ $ z $ = 0}  \\<br>    1, &amp; \text{ $ z $ &gt; 0} \\<br>    \end{cases}<br>    \tag{4}<br>$$但是该函数不可导，不能作为式（3）中的 $ f ^ {-1} (\cdot) $。Sigmoid函数是一个常用的替代方案：<br>$$<br>    g(z) = \frac {1} {1 + e ^ {-z}} \tag{5}<br>$$该函数将$ z $映射到 $ (0, 1) $ 之间，$ g(0) = 0.5 $，其函数如下图所示：</p>
-<p><div align="center"><br>    <img src="./sigmoid.png" alt="sigmoid函数" align="center"><br></div><br>可认为$ g(z) $的值为样本属于正类的概率，则若 $ z &gt; 0.5$，则判定该样本为正类，$ z &lt; 0.5 $判定该样本为负类。将 $ g(z) $ 作为 $f ^ {-1}$ 代入式（3）中得到假设函数：<br>$$<br>    h(x) = \frac {1} {1 + e ^ {-\theta ^ \mathrm{T} x}} \tag{6}<br>$$该模型便称之为<strong>逻辑回归</strong>。剩下的问题就是求解 $ \theta $了。</p>
+<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>根据上面理论，如果能找到一个函数使得线性回归产生的预测值 $ z = \theta ^ {T} x $ 映射到真实标记 $ \lbrace 0, 1 \rbrace $ 中，即可将线性模型用于分类任务。最理想的是单位阶跃函数：<br>$$<br>    y =<br>    \begin{cases}<br>    0,  &amp; \text{ $ z $ &lt; 0 } \\<br>    0.5, &amp; \text{ $ z $ = 0}  \\<br>    1, &amp; \text{ $ z $ &gt; 0} \\<br>    \end{cases}<br>    \tag{4}<br>$$<br>但是该函数不可导，不能作为式（3）中的 $ f ^ {-1} (\cdot) $。Sigmoid函数是一个常用的替代方案：<br>$$<br>    g(z) = \frac {1} {1 + e ^ {-z}} \tag{5}<br>$$<br>该函数将$ z $映射到 $ (0, 1) $ 之间，$ g(0) = 0.5 $，其函数如下图所示：</p>
+<p><div align="center"><br>    <img src="./sigmoid.png" alt="sigmoid函数" align="center"><br></div><br>可认为$ g(z) $的值为样本属于正类的概率，则若 $ z &gt; 0.5$，则判定该样本为正类，$ z &lt; 0.5 $判定该样本为负类。将 $ g(z) $ 作为 $f ^ {-1}$ 代入式（3）中得到假设函数：<br>$$<br>    h(x) = \frac {1} {1 + e ^ {-\theta ^ \mathrm{T} x}} \tag{6}<br>$$<br>该模型便称之为<strong>逻辑回归</strong>。剩下的问题就是求解 $ \theta $了。</p>
 <h3 id="最大似然"><a href="#最大似然" class="headerlink" title="最大似然"></a>最大似然</h3><p>上节提到逻辑回归的模型输出 $ h(x) $ 可看作样本 $x$ 属于正类的后验概率，那么属于负类的后验概率自然是 $ 1 - h(x) $，用概率的形式可表示为：<br>
 $$
 \begin{align}
@@ -341,10 +394,11 @@ $$
 $$
 于是求解 $ \theta $ 相当于参数估计，可用最大似然法。
 
-给定数据集 $ \lbrace (x_ i, y_ i) \rbrace _{i = 1} ^ {m}$，似然函数为：
+给定数据集 $ \lbrace (x_ i, y_ i) \rbrace{i = 1} ^ {m}$，似然函数为：
 $$
     l(\theta) = \sum_ {i = 1} ^ {m} \ln{p(y_ i|x_ i; \theta)} \tag{8}
-$$其中：
+$$
+其中：
 $$
     \ln{p(y_ i|x_ i; \theta)} = 
     \begin{cases}
@@ -361,11 +415,13 @@ $$
 问题即变成：
 $$
     \max_ {\theta} l(\theta) \tag{11}
-$$令 $ J(\theta) = -l(\theta) $，式（11）等同于：
+$$
+令 $ J(\theta) = -l(\theta) $，式（11）等同于：
 $$
     \min_ {\theta} J(\theta) = 
     \sum_ {i = 1} ^ {m} -y_ i \ln{h(x ^ {i})} - (1 - y_ i) \ln {(1 - h(x ^ {i}))} \tag{12}
-$$因为式（12）中的两项对于每个 $ i $ 不能同时取到，并且 $ -\ln{x} $ 与 $ -\ln{(1 - x)} $均为单调函数，故 $ J(\theta) $ 为凸函数（凸函数的线性叠加也是凸函数），可用梯度下降法求得最优解。
+$$
+因为式（12）中的两项对于每个 $ i $ 不能同时取到，并且 $ -\ln{x} $ 与 $ -\ln{(1 - x)} $均为单调函数，故 $ J(\theta) $ 为凸函数（凸函数的线性叠加也是凸函数），可用梯度下降法求得最优解。
 
 其过程为：
 $$
@@ -395,21 +451,26 @@ $$
       
     </div>
 
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/机器学习/" rel="tag">#机器学习</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/梯度下降法/" rel="tag">#梯度下降法</a>
+            <a href="/tags/梯度下降法/" rel="tag"># 梯度下降法</a>
           
-            <a href="/tags/线性模型/" rel="tag">#线性模型</a>
+            <a href="/tags/线性模型/" rel="tag"># 线性模型</a>
           
-            <a href="/tags/逻辑回归/" rel="tag">#逻辑回归</a>
+            <a href="/tags/逻辑回归/" rel="tag"># 逻辑回归</a>
           
-            <a href="/tags/最大似然/" rel="tag">#最大似然</a>
+            <a href="/tags/最大似然/" rel="tag"># 最大似然</a>
           
         </div>
+      
+
+      
+        
       
 
       
@@ -421,6 +482,8 @@ $$
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -463,7 +526,7 @@ $$
     </div>
   </div>
 
-
+          
           </div>
           
 
@@ -506,25 +569,32 @@ $$
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/pic.jpg"
+               src="/images/avatar.gif"
                alt="Rosen" />
           <p class="site-author-name" itemprop="name">Rosen</p>
-          <p class="site-description motion-element" itemprop="description">一些学习上的总结与思考</p>
+           
+              <p class="site-description motion-element" itemprop="description">一些学习上的总结与思考</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">10</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -532,8 +602,10 @@ $$
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -548,11 +620,11 @@ $$
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/rosenx" target="_blank" title="GitHub">
+                <a href="https://github.com/rosenx" target="_blank" title="Github">
                   
-                    <i class="fa fa-fw fa-github"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
-                  GitHub
+                  Github
                 </a>
               </span>
             
@@ -565,19 +637,29 @@ $$
         
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#广义线性模型"><span class="nav-number">1.</span> <span class="nav-text">广义线性模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑回归"><span class="nav-number">2.</span> <span class="nav-text">逻辑回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大似然"><span class="nav-number">3.</span> <span class="nav-text">最大似然</span></a></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
+      
+
       
 
     </div>
@@ -600,8 +682,9 @@ $$
   <span class="author" itemprop="copyrightHolder">Rosen</span>
 </div>
 
+
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
@@ -611,15 +694,20 @@ $$
   </a>
 </div>
 
+
         
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
   </div>
 
   
@@ -642,47 +730,48 @@ $$
 
 
 
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -707,7 +796,8 @@ $$
 
   
     
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
 
@@ -716,32 +806,26 @@ $$
 
 
 
+
+
+
+
+
+
+
   
   
 
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
-
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
 
   
+
+  
+
+  
+
 
   
 
