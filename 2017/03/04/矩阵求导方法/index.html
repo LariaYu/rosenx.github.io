@@ -90,20 +90,20 @@
 
 <meta name="description" content="在机器学习的公式推导中大量运用了矩阵求导的知识，以前只是凭着函数求导的感觉来做，碰到矩阵转置的时候总是弄不清楚到底要不要转置。这几天看了下矩阵求导方面的知识，总结如下。
 在本文中向量默认用列向量表示。
-Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in \">
+Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵元素的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="矩阵求导方法">
 <meta property="og:url" content="http://rosen.xyz/2017/03/04/矩阵求导方法/index.html">
 <meta property="og:site_name" content="Rosen">
 <meta property="og:description" content="在机器学习的公式推导中大量运用了矩阵求导的知识，以前只是凭着函数求导的感觉来做，碰到矩阵转置的时候总是弄不清楚到底要不要转置。这几天看了下矩阵求导方面的知识，总结如下。
 在本文中向量默认用列向量表示。
-Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in \">
-<meta property="og:updated_time" content="2017-03-05T08:19:05.424Z">
+Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵元素的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in">
+<meta property="og:updated_time" content="2017-03-05T08:32:36.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="矩阵求导方法">
 <meta name="twitter:description" content="在机器学习的公式推导中大量运用了矩阵求导的知识，以前只是凭着函数求导的感觉来做，碰到矩阵转置的时候总是弄不清楚到底要不要转置。这几天看了下矩阵求导方面的知识，总结如下。
 在本文中向量默认用列向量表示。
-Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in \">
+Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵元素的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in">
 
 
 
@@ -343,12 +343,12 @@ Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的�
       
         <p>在机器学习的公式推导中大量运用了矩阵求导的知识，以前只是凭着函数求导的感觉来做，碰到矩阵转置的时候总是弄不清楚到底要不要转置。这几天看了下矩阵求导方面的知识，总结如下。</p>
 <p>在本文中向量默认用列向量表示。</p>
-<h2 id="Layout-Conventions"><a href="#Layout-Conventions" class="headerlink" title="Layout Conventions"></a>Layout Conventions</h2><p>这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in \mathbb R^n$求导后数据有两种摆放形式：</p>
+<h2 id="Layout-Conventions"><a href="#Layout-Conventions" class="headerlink" title="Layout Conventions"></a>Layout Conventions</h2><p>这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵元素的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in \mathbb R^n$求导后数据有两种摆放形式：</p>
 <ol>
-<li>Numerator layout: 求导后矩阵维数是$m \times n$ ，即是$\mathbf y$的维数乘上$\mathbf x$的维数。</li>
-<li>Denominator layout: 求导后矩阵维数是$n \times m$。</li>
+<li>Numerator layout: 求导后矩阵维数由$\mathbf y$和$\mathbf x^{\mathrm T}$决定，是$m \times n$ ，最后一维与$\mathbf x^{\mathrm T}$相同。</li>
+<li>Denominator layout: 求导后矩阵维数是$n \times m$，由$\mathbf y^{\mathrm T}$和$\mathbf x$决定，最后一维与$\mathbf y^{\mathrm T}$相同</li>
 </ol>
-<p>用$\frac {\partial y}{\partial \mathbf x}$举例（表来那个可以看作是长度唯一的向量），使用Numerator layout得到的是一个列向量，而使用Denominator layout得到的是一个行向量。</p>
+<p>用$\frac {\partial y}{\partial \mathbf x}$举例（变量可以看作是长度唯一的向量），使用Numerator layout得到的是一个列向量，而使用Denominator layout得到的是一个行向量。</p>
 <p>这两种方式得到的结果是一样的，只不过一个是另一个的转置。在本文中默认使用Numerator layout方式。</p>
 <h2 id="元素级求导"><a href="#元素级求导" class="headerlink" title="元素级求导"></a>元素级求导</h2><p>矩阵$\mathbf A$对矩阵$\mathbf B$求导（向量和标量可以看做是特殊矩阵），实际上是$\mathbf A$中每个元素中$\mathbf B$中每个元素求导，然后把所有导数按照一定的摆放方式排成一个矩阵或张量。</p>
 <h3 id="向量对标量"><a href="#向量对标量" class="headerlink" title="向量对标量"></a>向量对标量</h3><p>对于向量$\mathbf y = \left[  \begin{array}{c}  y_1\\ y_2  \\ \vdots \\ y_m \end{array} \right]$， 其对标量$x$求导的结果是：$\frac{\partial \mathbf y}{\partial x} = \begin{bmatrix}\frac{\partial y_1}{\partial x} \\ \frac{\partial y_2}{\partial x}\\ \vdots \\ \frac{\partial y_m}{\partial x}\end{bmatrix}$</p>
@@ -357,12 +357,12 @@ Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的�
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>矩阵$\mathbf Y$对$x$求导时，$\mathbf Y$中的每个元素分别对$x$求导，$\frac{\partial \mathbf Y}{\partial x}$的形状与$\mathbf Y$相同。$\frac{\partial x}{\partial \mathbf Y}$的形状与$\mathbf Y^{\mathrm T}$相同。</p>
 <p>矩阵与向量之间的求导在平面无法展开，大体思想相同：分子对分母里面的每个元素按照上面规则求导，最后将结果写成一个张量。</p>
 <h2 id="公式求导"><a href="#公式求导" class="headerlink" title="公式求导"></a>公式求导</h2><p>函数求导中的乘法法则，加法法则和链式法则也可适用到矩阵公式求导中。</p>
-<p>对矩阵公式求导时，先弄清楚分子分母最后的结果分别是什么（如是分子是标量，分母是向量），然后根据元素级求导法则确定最后所求的的形状应该什么样的。根据最后的形状在求导过程中处理转置问题。</p>
+<p>对矩阵公式求导时，先弄清楚分子分母最后的结果分别是什么（如分子是标量，分母是向量），然后根据元素级求导法则确定最后所求的的形状应该什么样的。根据最后的形状在求导过程中处理转置问题。</p>
 <h3 id="普通公式求导"><a href="#普通公式求导" class="headerlink" title="普通公式求导"></a>普通公式求导</h3><p>下面通过几个例子讲解公式求导方法</p>
 <p>假设$\mathbf x \in \mathbb R^{n}$，$\mathbf A \in \mathbb R ^ {n \times m}$</p>
 <ol>
 <li><p>$\frac{\partial \mathbf x^{\mathrm T} \mathbf A}{\partial \mathbf x} = \mathbf A^{\mathrm T}$</p>
-<p>分子分母都是一个向量，最后的结果是一个矩阵，该矩阵的最后一维与$\mathbf  x$的维数相同(看Layout Conventions部分)，故最后的结果应该是$m \times n$的矩阵，所以是$\mathbf A ^{\mathrm T}$而不是$\mathbf A$。</p>
+<p>分子分母都是一个向量，最后的结果是一个矩阵，该矩阵的维数是$m \times n​$(看Layout Conventions部分)，所以最后的结果是$\mathbf A ^{\mathrm T}​$而不是$\mathbf A​$。</p>
 </li>
 <li><p>$\frac{\partial \mathbf x^{\mathrm T} \mathbf A \mathbf x}{\partial \mathbf x} = \mathbf x ^ {\mathrm T}(\mathbf A + \mathbf A^{\mathrm T})$</p>
 <p>分子是一个数，分母是一个向量，故最后的结果也是一个向量，与$\mathbf x ^ {\mathrm T}$形状相同，故其推导过程如下：<br>$$<br>\frac{\partial \mathbf x^{\mathrm T} \mathbf A \mathbf x}{\partial \mathbf x}<br>=\mathbf x^{\mathrm T} \frac{\partial \mathbf x ^ {\mathrm T} \mathbf A}{\partial \mathbf x} + \mathbf x ^ {\mathrm T} \frac{\partial \mathbf{Ax}}{\partial \mathbf x}<br>= \mathbf{x^{\mathrm T}A^{\mathrm T}+x^{\mathrm T}A}<br>=\mathbf{x^{\mathrm T}(A+A^{\mathrm T})}<br>$$</p>
@@ -379,7 +379,7 @@ Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的�
 <li>如果$d\mathbf y = tr(\mathbf Ad \mathbf X)$，则$\frac{d\mathbf y}{d \mathbf X}=\mathbf A $</li>
 </ol>
 <p>例如计算：$\frac{\partial tr(\mathbf {AXBX^{\mathrm T}C})}{\partial \mathbf X}$<br>$$<br>\begin{align}<br> d \mathrm tr (\mathbf{AXBX^{\mathrm T}C})<br> &amp;= d \mathrm tr(\mathbf {CAXBX^{\mathrm T}})=\mathrm tr(d(\mathbf{CAX})\mathbf {BX^{\mathrm T}}+\mathbf{CAX}d(\mathbf{BX^{\mathrm T}}))\\<br> &amp;= \mathrm tr(d(\mathbf{CAX})\mathbf {BX^{\mathrm T}})+\mathrm tr(\mathbf{CAX}d(\mathbf{BX^{\mathrm T}}))\\<br> &amp;=\mathrm tr(\mathbf{CA}d(\mathbf X)\mathbf{BX^{\mathrm T}})+\mathrm tr(\mathbf{CAXB}d(\mathbf{X^\mathrm T}))\\<br> &amp;=\mathrm tr(\mathbf{BX^{\mathrm T}CA}d(\mathbf X)) + \mathrm tr(d(\mathbf X)\mathbf{B^{\mathrm T}X^{\mathrm T}A^{\mathrm T}C^{\mathrm T}})\\<br> &amp;=\mathrm tr(\mathbf{BX^{\mathrm T}CA}d(\mathbf X)) +\mathrm tr(\mathbf{B^{\mathrm T}X^{\mathrm T}A^{\mathrm T}C^{\mathrm T}}d(\mathbf X))\\<br> &amp;=\mathrm tr((\mathbf{BX^{\mathrm T}CA} +\mathbf{B^{\mathrm T}X^{\mathrm T}A^{\mathrm T}C^{\mathrm T}})d(\mathbf X))\\<br>\end{align}<br>$$<br>所以：<br>$$<br>\frac{\partial tr(\mathbf {AXBX^{\mathrm T}C})}{\partial \mathbf X}<br>=\mathbf{BX^{\mathrm T}CA} +\mathbf{B^{\mathrm T}X^{\mathrm T}A^{\mathrm T}C^{\mathrm T}}<br>$$</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>知道以上方法基本上就可以机器学习里面关于矩阵求导的问题都可以解决了，如果遇到更复杂的请参考<a href="https://en.wikipedia.org/wiki/Matrix_calculus" target="_blank" rel="external">wiki</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>知道以上方法基本上机器学习里面关于矩阵求导的问题都可以解决了，如果遇到更复杂的请参考<a href="https://en.wikipedia.org/wiki/Matrix_calculus" target="_blank" rel="external">wiki</a></p>
 
       
     </div>
