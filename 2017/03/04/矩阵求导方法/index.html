@@ -89,21 +89,18 @@
 
 
 <meta name="description" content="在机器学习的公式推导中大量运用了矩阵求导的知识，以前只是凭着函数求导的感觉来做，碰到矩阵转置的时候总是弄不清楚到底要不要转置。这几天看了下矩阵求导方面的知识，总结如下。
-在本文中向量默认用列向量表示。
-Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵元素的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in">
+在本文中向量默认用列向量表示。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="矩阵求导方法">
 <meta property="og:url" content="http://rosen.xyz/2017/03/04/矩阵求导方法/index.html">
 <meta property="og:site_name" content="Rosen">
 <meta property="og:description" content="在机器学习的公式推导中大量运用了矩阵求导的知识，以前只是凭着函数求导的感觉来做，碰到矩阵转置的时候总是弄不清楚到底要不要转置。这几天看了下矩阵求导方面的知识，总结如下。
-在本文中向量默认用列向量表示。
-Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵元素的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in">
-<meta property="og:updated_time" content="2017-03-05T08:32:36.932Z">
+在本文中向量默认用列向量表示。">
+<meta property="og:updated_time" content="2017-03-05T08:35:20.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="矩阵求导方法">
 <meta name="twitter:description" content="在机器学习的公式推导中大量运用了矩阵求导的知识，以前只是凭着函数求导的感觉来做，碰到矩阵转置的时候总是弄不清楚到底要不要转置。这几天看了下矩阵求导方面的知识，总结如下。
-在本文中向量默认用列向量表示。
-Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵元素的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in">
+在本文中向量默认用列向量表示。">
 
 
 
@@ -343,6 +340,7 @@ Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的�
       
         <p>在机器学习的公式推导中大量运用了矩阵求导的知识，以前只是凭着函数求导的感觉来做，碰到矩阵转置的时候总是弄不清楚到底要不要转置。这几天看了下矩阵求导方面的知识，总结如下。</p>
 <p>在本文中向量默认用列向量表示。</p>
+<a id="more"></a>
 <h2 id="Layout-Conventions"><a href="#Layout-Conventions" class="headerlink" title="Layout Conventions"></a>Layout Conventions</h2><p>这是在wiki上看到的词，不太好翻译，我理解的意思是矩阵元素的摆放方式。向量$\mathbf y \in\mathbb R^m$对向量$\mathbf x \in \mathbb R^n$求导后数据有两种摆放形式：</p>
 <ol>
 <li>Numerator layout: 求导后矩阵维数由$\mathbf y$和$\mathbf x^{\mathrm T}$决定，是$m \times n$ ，最后一维与$\mathbf x^{\mathrm T}$相同。</li>
@@ -362,7 +360,7 @@ Layout Conventions这是在wiki上看到的词，不太好翻译，我理解的�
 <p>假设$\mathbf x \in \mathbb R^{n}$，$\mathbf A \in \mathbb R ^ {n \times m}$</p>
 <ol>
 <li><p>$\frac{\partial \mathbf x^{\mathrm T} \mathbf A}{\partial \mathbf x} = \mathbf A^{\mathrm T}$</p>
-<p>分子分母都是一个向量，最后的结果是一个矩阵，该矩阵的维数是$m \times n​$(看Layout Conventions部分)，所以最后的结果是$\mathbf A ^{\mathrm T}​$而不是$\mathbf A​$。</p>
+<p>分子分母都是一个向量，最后的结果是一个矩阵，该矩阵的维数是$m \times n$(看Layout Conventions部分)，所以最后的结果是$\mathbf A ^{\mathrm T}$而不是$\mathbf A$。</p>
 </li>
 <li><p>$\frac{\partial \mathbf x^{\mathrm T} \mathbf A \mathbf x}{\partial \mathbf x} = \mathbf x ^ {\mathrm T}(\mathbf A + \mathbf A^{\mathrm T})$</p>
 <p>分子是一个数，分母是一个向量，故最后的结果也是一个向量，与$\mathbf x ^ {\mathrm T}$形状相同，故其推导过程如下：<br>$$<br>\frac{\partial \mathbf x^{\mathrm T} \mathbf A \mathbf x}{\partial \mathbf x}<br>=\mathbf x^{\mathrm T} \frac{\partial \mathbf x ^ {\mathrm T} \mathbf A}{\partial \mathbf x} + \mathbf x ^ {\mathrm T} \frac{\partial \mathbf{Ax}}{\partial \mathbf x}<br>= \mathbf{x^{\mathrm T}A^{\mathrm T}+x^{\mathrm T}A}<br>=\mathbf{x^{\mathrm T}(A+A^{\mathrm T})}<br>$$</p>
