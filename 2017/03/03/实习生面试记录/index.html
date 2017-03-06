@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Rosen">
 <meta property="og:description" content="3月份面试应该会多起来（希望如此..），将持续更新
 谷歌一月份开始投简历，只有谷歌确认要面我。所以请接受我的处女面吧~">
-<meta property="og:updated_time" content="2017-03-04T13:23:43.266Z">
+<meta property="og:updated_time" content="2017-03-06T14:11:58.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实习生面试记录">
 <meta name="twitter:description" content="3月份面试应该会多起来（希望如此..），将持续更新
@@ -373,6 +373,20 @@
 <p>面试官看了我的代码，问什么意思，然后问我复杂度，我说$n^2$。后来想根本不必要这样，直接慢指针维护下一个非A字符要放入的位置，$O(n)$就可以做完。</p>
 <p>后来面试官问我还有什么问题，我真的超想问他觉得我面的怎么样，忍住了。我问他因为一些原因谷歌的主要业务不能在国内开展，那谷歌中国在中国的主要业务是什么呢？他跟我讲了很多，说谷歌中国的业务都是国际化的，谷歌北京主要负责输入法和基础平台，谷歌上海主要负责海量广告的存储和投放。</p>
 <p>总而言之，现在想来这个面试真是太失败了，感觉后面做题完全不在状态。估计是跪了，等结果中。</p>
+<h2 id="美图"><a href="#美图" class="headerlink" title="美图"></a>美图</h2><ol>
+<li>什么时候能来实习，职业目标是什么，想做什么方面的工作？</li>
+<li>讲一下你的学习历程，经历</li>
+<li>移动AR地球仪项目，你在项目中主要的职责是什么？我说的是算法实现</li>
+<li>是自己实现的SIFT特征提取吗？不是。你对SIFT特征了解多少？只了解它的思想，说了几个不变性。</li>
+<li>SVM是怎么训练的？这个问题很奇怪。我说我们构造出训练集，提取出特征后，调用的Opencv自带的训练函数。它的意思好像不是这个。他想问是你的输入输出是什么，svm怎么实现多分类。</li>
+<li>svm你们调了哪些参数？我说主要是正则化系数。他然后问你们用的什么核函数，你认为核函数的作用是什么？我说是将低维数据映射到高维，<del>让高维空间中向量的内积等于低位空间中向量的内积</del>。然后他叫我举个例子，不太明白他什么意思，他说如果是数据是二维的：(x1,x2)，有个核函数(x1+x2)，那这个核函数的意义是什么？想起Andrew的课，我说是构造出一个新特征，他不置可否，其实我并不太知道，应该就说不知道问他的。</li>
+<li>svm不用核函数，如果数据不可分，svm能实现分类吗？我说如果允许一定错误率是可以的。怎么做的？普通svm是不允许间隔之间有点的，现在允许中间有点。怎么做到的呢？我说在不等式条件上加一个松弛变量（当时在说不等式条件的时候有点没说清楚）。</li>
+<li>你最熟悉的模型是什么？我说LR。你跟我说说它的原理吧？我说实在线性回归模型上套了一层sigmoid函数使得输出具有概率意义，能实现分类。参数是怎么得到的？通过最大似然估计得到它的代价函数，通过梯度下降法迭代求导。为什么用梯度下降法，为什么不直接求解？当时只记得线性回归可以直接求解，不知道LR也可以，就说不知道。梯度下降法原理是什么？我说求出函数在每个维度上下降最快的方向，沿着一定的步长走可以更快到达目标。梯度下降法的梯度是怎么变化的？离目标越近，梯度越小，但是如果走过了会震荡。参数是怎么更新的？</li>
+<li>你有做一些应用方面的工作吗？我说做了几个网站，科研院，ERP。他问是任务式的还是自己感兴趣？我说任务式的。他说这种任务式的工作是不是觉得没意思？（我觉得是个坑），我说没有，做网站的时候做前端还是很有意思的，能看到自己实现的东西还是很有成就感。那你还做过别的什么桌面上的东西吗？我说了本科用QT做的一个桌面软件。</li>
+<li>平时主要使用的语言是python是吗？你熟悉哪些python关于机器学习的包？</li>
+<li>忘了还问了些什么？</li>
+<li>你还有什么问题吗？</li>
+</ol>
 
       
     </div>
@@ -564,7 +578,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#谷歌"><span class="nav-number">1.</span> <span class="nav-text">谷歌</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面"><span class="nav-number">1.1.</span> <span class="nav-text">一面</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#谷歌"><span class="nav-number">1.</span> <span class="nav-text">谷歌</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面"><span class="nav-number">1.1.</span> <span class="nav-text">一面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#美图"><span class="nav-number">2.</span> <span class="nav-text">美图</span></a></li></ol></div>
             
           </div>
         </section>
