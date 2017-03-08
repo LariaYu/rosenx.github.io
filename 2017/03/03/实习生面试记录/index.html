@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Rosen">
 <meta property="og:description" content="3月份面试应该会多起来（希望如此..），将持续更新
 谷歌一月份开始投简历，只有谷歌确认要面我。所以请接受我的处女面吧~">
-<meta property="og:updated_time" content="2017-03-06T14:11:58.833Z">
+<meta property="og:updated_time" content="2017-03-08T11:28:03.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实习生面试记录">
 <meta name="twitter:description" content="3月份面试应该会多起来（希望如此..），将持续更新
@@ -341,7 +341,7 @@
         <p>3月份面试应该会多起来（希望如此..），将持续更新</p>
 <h2 id="谷歌"><a href="#谷歌" class="headerlink" title="谷歌"></a>谷歌</h2><p>一月份开始投简历，只有谷歌确认要面我。所以请接受我的处女面吧~</p>
 <a id="more"></a>
-<h3 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h3><p>上来面试官先介绍了一下面试流程，然后叫我做下自我介绍。因为提前写了，所以挺流畅。然后开始问问题：</p>
+<h3 id="一面（3-03）"><a href="#一面（3-03）" class="headerlink" title="一面（3.03）"></a>一面（3.03）</h3><p>上来面试官先介绍了一下面试流程，然后叫我做下自我介绍。因为提前写了，所以挺流畅。然后开始问问题：</p>
 <ol>
 <li><p>最让你印象深刻的项目是什么?怎么做的？</p>
 <p>我说了AR地球仪这个项目，项目是干什么的，怎么实现的。面试的时候还是有些紧张，将CNN那部分忘了，只是简单介绍了SIFT+BOW，SVM方案。后来想想，这部分可以多说说。</p>
@@ -373,7 +373,7 @@
 <p>面试官看了我的代码，问什么意思，然后问我复杂度，我说$n^2$。后来想根本不必要这样，直接慢指针维护下一个非A字符要放入的位置，$O(n)$就可以做完。</p>
 <p>后来面试官问我还有什么问题，我真的超想问他觉得我面的怎么样，忍住了。我问他因为一些原因谷歌的主要业务不能在国内开展，那谷歌中国在中国的主要业务是什么呢？他跟我讲了很多，说谷歌中国的业务都是国际化的，谷歌北京主要负责输入法和基础平台，谷歌上海主要负责海量广告的存储和投放。</p>
 <p>总而言之，现在想来这个面试真是太失败了，感觉后面做题完全不在状态。估计是跪了，等结果中。</p>
-<h2 id="美图"><a href="#美图" class="headerlink" title="美图"></a>美图</h2><ol>
+<h2 id="美图（3-06）"><a href="#美图（3-06）" class="headerlink" title="美图（3.06）"></a>美图（3.06）</h2><ol>
 <li>什么时候能来实习，职业目标是什么，想做什么方面的工作？</li>
 <li>讲一下你的学习历程，经历</li>
 <li>移动AR地球仪项目，你在项目中主要的职责是什么？我说的是算法实现</li>
@@ -387,6 +387,37 @@
 <li>忘了还问了些什么？</li>
 <li>你还有什么问题吗？</li>
 </ol>
+<h2 id="魔霸游戏（3-08）"><a href="#魔霸游戏（3-08）" class="headerlink" title="魔霸游戏（3.08）"></a>魔霸游戏（3.08）</h2><h3 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h3><ol>
+<li><p>给你N个木头，长短不一，要求将这个木头分成M段，每段长度一样，问每段长度最大是多少？有些木头可以不用，边角料可以不用</p>
+</li>
+<li><p>定义一个规则：字符串+k将得到一个新字符串，新字符串中每个字符是旧字符串每个字符+k，如ABC+2= CDE，称这两个字符串为朋友</p>
+<p>现在给定n个字符串和k，判断每个字符串在是否有朋友</p>
+</li>
+<li><p>上一题k不给定怎么做，要求复杂度不变</p>
+</li>
+<li><p>100万用户，每个用户有分数（0-100的整数），名字。有两种查询操作：1.查某个用户的分数。2. 更新分数。查询300次/s，更新100次/s。设计尽可能快的算法。</p>
+</li>
+<li><p>如果分数更大，比如0~10000？</p>
+</li>
+<li><p>定义一种操作：在字符串中选择一个字符将它提到字符串的最前面。比如MOBA，将B提前是BMOA。现在给你两个字符串，问从一个字符串最少执行多少次操作能到第二个字符串。（这个题没答上来）</p>
+</li>
+<li><p>一个BBS系统，有10万活跃用户，每个用户大概有50个好友，每个帖子大概有40个回帖。现在想添加这样一个功能：当前用户回帖后显示所有回帖用户中是他好友的好友。给你一个数据库表，存好友关系，两个字段，分别表示两个用户。后台怎样实现更快。</p>
+</li>
+<li><p>给你一个股票序列，只能执行一次买入卖出操作，怎样收益最大？</p>
+</li>
+<li><p>上一题，如果是两次呢？</p>
+</li>
+<li><p>你机器学习玩过多长时间？</p>
+</li>
+</ol>
+<h3 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h3><ol>
+<li>你玩过游戏吗？玩过什么？玩得怎么样？</li>
+<li>你对游戏AI设计感兴趣吗？你觉得AI设计应该是什么样的？然后我说了一下，他就给我将他们是怎么做的，谈lol</li>
+<li>你对机器学习机器学习了解那些？</li>
+<li>你怎么设计游戏里英雄的出装顺序？</li>
+<li>你了解A*算法吗？大概说一下</li>
+</ol>
+<p>   ​</p>
 
       
     </div>
@@ -578,7 +609,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#谷歌"><span class="nav-number">1.</span> <span class="nav-text">谷歌</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面"><span class="nav-number">1.1.</span> <span class="nav-text">一面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#美图"><span class="nav-number">2.</span> <span class="nav-text">美图</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#谷歌"><span class="nav-number">1.</span> <span class="nav-text">谷歌</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面（3-03）"><span class="nav-number">1.1.</span> <span class="nav-text">一面（3.03）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#美图（3-06）"><span class="nav-number">2.</span> <span class="nav-text">美图（3.06）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#魔霸游戏（3-08）"><span class="nav-number">3.</span> <span class="nav-text">魔霸游戏（3.08）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一面"><span class="nav-number">3.1.</span> <span class="nav-text">一面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二面"><span class="nav-number">3.2.</span> <span class="nav-text">二面</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
