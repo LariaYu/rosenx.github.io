@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="机器学习,梯度下降法,线性模型,逻辑回归,最大似然," />
+  <meta name="keywords" content="C++,设计模式," />
 
 
 
@@ -88,18 +88,39 @@
 
 
 
-<meta name="description" content="广义线性模型上一篇文章中介绍了线性模型：$$y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$    y">
+<meta name="description" content="有时候我们会要求一个类只能存在一个对象，比如：
+
+
+一个系统中可以存在多个打印任务，但是只能有一个正在工作的任务；
+一个系统只能有一个窗口管理器或文件系统；
+一个系统只能有一个计时工具或ID(序号)生成器。
+
+摘自百度百科“单例模式”">
 <meta property="og:type" content="article">
-<meta property="og:title" content="广义线性模型与逻辑回归">
-<meta property="og:url" content="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/index.html">
+<meta property="og:title" content="单例模式">
+<meta property="og:url" content="http://rosen.xyz/2017/03/08/单例模式/index.html">
 <meta property="og:site_name" content="Rosen">
-<meta property="og:description" content="广义线性模型上一篇文章中介绍了线性模型：$$y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$    y">
-<meta property="og:image" content="http://rosen.xyz/./sigmoid.png">
-<meta property="og:updated_time" content="2017-03-03T09:24:40.049Z">
+<meta property="og:description" content="有时候我们会要求一个类只能存在一个对象，比如：
+
+
+一个系统中可以存在多个打印任务，但是只能有一个正在工作的任务；
+一个系统只能有一个窗口管理器或文件系统；
+一个系统只能有一个计时工具或ID(序号)生成器。
+
+摘自百度百科“单例模式”">
+<meta property="og:image" content="http://rosen.xyz/./problem.png">
+<meta property="og:updated_time" content="2017-03-09T13:59:52.691Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="广义线性模型与逻辑回归">
-<meta name="twitter:description" content="广义线性模型上一篇文章中介绍了线性模型：$$y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$    y">
-<meta name="twitter:image" content="http://rosen.xyz/./sigmoid.png">
+<meta name="twitter:title" content="单例模式">
+<meta name="twitter:description" content="有时候我们会要求一个类只能存在一个对象，比如：
+
+
+一个系统中可以存在多个打印任务，但是只能有一个正在工作的任务；
+一个系统只能有一个窗口管理器或文件系统；
+一个系统只能有一个计时工具或ID(序号)生成器。
+
+摘自百度百科“单例模式”">
+<meta name="twitter:image" content="http://rosen.xyz/./problem.png">
 
 
 
@@ -120,9 +141,9 @@
 
 
 
-  <link rel="canonical" href="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/"/>
+  <link rel="canonical" href="http://rosen.xyz/2017/03/08/单例模式/"/>
 
-  <title> 广义线性模型与逻辑回归 | Rosen </title>
+  <title> 单例模式 | Rosen </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +283,7 @@
             
             
               
-                广义线性模型与逻辑回归
+                单例模式
               
             
           </h1>
@@ -274,8 +295,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-07T16:48:54+08:00" content="2016-08-07">
-              2016-08-07
+            <time itemprop="dateCreated" datetime="2017-03-08T20:58:09+08:00" content="2017-03-08">
+              2017-03-08
             </time>
           </span>
 
@@ -288,8 +309,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/程序猿/" itemprop="url" rel="index">
+                    <span itemprop="name">程序猿</span>
                   </a>
                 </span>
 
@@ -304,8 +325,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/07/广义线性模型与逻辑回归/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/广义线性模型与逻辑回归/" itemprop="commentsCount"></span>
+                <a href="/2017/03/08/单例模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/08/单例模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -315,7 +336,7 @@
 
           
           
-             <span id="/2016/08/07/广义线性模型与逻辑回归/" class="leancloud_visitors" data-flag-title="广义线性模型与逻辑回归">
+             <span id="/2017/03/08/单例模式/" class="leancloud_visitors" data-flag-title="单例模式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -337,58 +358,33 @@
       
 
       
-        <h3 id="广义线性模型"><a href="#广义线性模型" class="headerlink" title="广义线性模型"></a>广义线性模型</h3><p>上一篇文章中介绍了线性模型：<br>$$<br>y = \theta ^ \mathrm{T} x \tag{1}<br>$$<br>该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：<br>$$<br>    \ln{y} = \theta ^ \mathrm{T} x \tag{2}<br>$$<br>更一般地，考虑<strong>单调可微</strong>函数 $ f(\cdot) $，令<br>$$<br>    y = f ^ {-1} (\theta ^ \mathrm{T} x) \tag{3}<br>$$<br>即可得到<strong>广义线性模型</strong>。其中 $ f(\cdot) $ 的作用是联系模型输出与样例真实标记，称之为联系函数。</p>
+        <p>有时候我们会要求一个类只能存在一个对象，比如：</p>
+<blockquote>
+<ol>
+<li>一个系统中可以存在多个打印任务，但是只能有一个正在工作的任务；</li>
+<li>一个系统只能有一个窗口管理器或文件系统；</li>
+<li>一个系统只能有一个计时工具或ID(序号)生成器。</li>
+</ol>
+<p>摘自百度百科“单例模式”</p>
+</blockquote>
 <a id="more"></a>
-<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>根据上面理论，如果能找到一个函数使得线性回归产生的预测值 $ z = \theta ^ {T} x $ 映射到真实标记 $ \lbrace 0, 1 \rbrace $ 中，即可将线性模型用于分类任务。最理想的是单位阶跃函数：<br>$$<br>    y =<br>    \begin{cases}<br>    0,  &amp; \text{ $ z $ &lt; 0 } \\<br>    0.5, &amp; \text{ $ z $ = 0}  \\<br>    1, &amp; \text{ $ z $ &gt; 0} \\<br>    \end{cases}<br>    \tag{4}<br>$$<br>但是该函数不可导，不能作为式（3）中的 $ f ^ {-1} (\cdot) $。Sigmoid函数是一个常用的替代方案：<br>$$<br>    g(z) = \frac {1} {1 + e ^ {-z}} \tag{5}<br>$$<br>该函数将$ z $映射到 $ (0, 1) $ 之间，$ g(0) = 0.5 $，其函数如下图所示：</p>
-<p><div align="center"><br>    <img src="./sigmoid.png" alt="sigmoid函数" align="center"><br></div><br>可认为$ g(z) $的值为样本属于正类的概率，则若 $ z &gt; 0.5$，则判定该样本为正类，$ z &lt; 0.5 $判定该样本为负类。将 $ g(z) $ 作为 $f ^ {-1}$ 代入式（3）中得到假设函数：<br>$$<br>    h(x) = \frac {1} {1 + e ^ {-\theta ^ \mathrm{T} x}} \tag{6}<br>$$<br>该模型便称之为<strong>逻辑回归</strong>。剩下的问题就是求解 $ \theta $了。</p>
-<h3 id="最大似然"><a href="#最大似然" class="headerlink" title="最大似然"></a>最大似然</h3><p>上节提到逻辑回归的模型输出 $ h(x) $ 可看作样本 $x$ 属于正类的后验概率，那么属于负类的后验概率自然是 $ 1 - h(x) $，用概率的形式可表示为：<br>
-$$
-\begin{align}
-    &p(y = 1 | x; \theta) = h(x)   \\\
-    &p(y = 0 | x; \theta) = 1 - h(x)
-\end{align}\tag{7}
-$$
-于是求解 $ \theta $ 相当于参数估计，可用最大似然法。
-
-给定数据集 $ \lbrace (x_ i, y_ i) \rbrace{i = 1} ^ {m}$，似然函数为：
-$$
-    l(\theta) = \sum_ {i = 1} ^ {m} \ln{p(y_ i|x_ i; \theta)} \tag{8}
-$$
-其中：
-$$
-    \ln{p(y_ i|x_ i; \theta)} = 
-    \begin{cases}
-    \ln{p(y_ i = 1| x_ i; \theta)} = \ln{h(x ^ {i})}, &\text{ $ y_ i $ = 1 } \\
-    \ln{p(y_ i = 0| x_ i; \theta)} = \ln{(1 - h(x ^ {i}))}, &\text{ $ y_ i $ = 0 }
-    \end{cases}
-    \tag {9}
-$$
-根据式（9），式（8）可重写为：
-$$
-    l(\theta) = 
-    \sum_ {i = 1} ^ {m} y_ i \ln{h(x ^ {i})} + (1 - y_ i) \ln {(1 - h(x ^ {i}))} \tag{10}
-$$
-问题即变成：
-$$
-    \max_ {\theta} l(\theta) \tag{11}
-$$
-令 $ J(\theta) = -l(\theta) $，式（11）等同于：
-$$
-    \min_ {\theta} J(\theta) = 
-    \sum_ {i = 1} ^ {m} -y_ i \ln{h(x ^ {i})} - (1 - y_ i) \ln {(1 - h(x ^ {i}))} \tag{12}
-$$
-因为式（12）中的两项对于每个 $ i $ 不能同时取到，并且 $ -\ln{x} $ 与 $ -\ln{(1 - x)} $均为单调函数，故 $ J(\theta) $ 为凸函数（凸函数的线性叠加也是凸函数），可用梯度下降法求得最优解。
-
-其过程为：
-$$
-\begin{align}
-    &\text{Repeat until convergence}\lbrace\\
-    &\qquad \theta_ j = \theta_ j - \alpha \sum_ {i = 1} ^ {m} (h(x^{i}) - y ^ {i}) x_ {j} ^ {i} 
-    &\qquad(j = 0,1,2,\cdots,n) \\
-    &\rbrace\\
-\end{align}
-$$
-</p>
+<h2 id="初步实现"><a href="#初步实现" class="headerlink" title="初步实现"></a>初步实现</h2><p>一个类只能创建一个实例，潜在意思就是说该类的构造函数不能随便调用，要实现这一点的一个直观想法就是将构造函数设为<code>private</code>。这时，只有类的内部函数和友元（破坏面向对象的封装性，不予考虑）可以调用它。但是没有创建实例，那就无法调用普通的成员函数，这就会陷入自相矛盾。所以我们需要一个静态的成员函数用于调用构造方法。</p>
+<p>初步实现代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> Single&#123;</div><div class="line">    <span class="keyword">class</span> Singleton &#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <span class="function"><span class="keyword">static</span> Singleton* <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (singleton == <span class="literal">nullptr</span>) &#123;</div><div class="line">                singleton = <span class="keyword">new</span> Singleton();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> singleton;</div><div class="line">        &#125;</div><div class="line">    <span class="keyword">private</span>:</div><div class="line">        Singleton() &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Create Instance..\n"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">static</span> Singleton *singleton;</div><div class="line">    &#125;;</div><div class="line">    Singleton* Singleton::singleton = <span class="literal">nullptr</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>使用上述代码在单线程是可行的，但是如果在多线程下使用上面的实现方法，可能会创建多个实例。例如使用下面的代码创建实例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> Single;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">createInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">    Singleton *instance = Singleton::getInstance();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">  	<span class="comment">// 创建一个线程</span></div><div class="line">    <span class="function">thread <span class="title">t</span><span class="params">(createInstance)</span></span>;</div><div class="line">    Singleton *instance = Singleton::getInstance();</div><div class="line">    t.join();</div><div class="line">    getchar();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出结果有时会是：</p>
+<p><img src="./problem.png" alt="多线程场景下会可能会创建多个实例"></p>
+<p>如图所示<code>Create Instance</code>输出了两次，表明构造函数被执行了两次。原因是可能会存在这样的执行顺序：</p>
+<p>if(线程A, singleton = nullptr) –&gt; if(线程B, singleton = nullptr) –&gt; new Singleton()(线程A) –&gt; new Singleton()(线程B)</p>
+<h2 id="适用于多线程"><a href="#适用于多线程" class="headerlink" title="适用于多线程"></a>适用于多线程</h2><p>既然<code>if</code>语句的执行顺序对结果会有影响，一个很自然的想法就是在<code>if</code>语句之前加一个锁。这样第一个线程进入了<code>if</code>语句前给它加锁后，其他进程就必须等到锁释放了才能进入。</p>
+<p>修改后代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> Single&#123;</div><div class="line">  	<span class="comment">// 定义互斥锁</span></div><div class="line">    mutex singleMutex;</div><div class="line">    <span class="keyword">class</span> Singleton &#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <span class="function"><span class="keyword">static</span> Singleton* <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">          	<span class="comment">//加锁</span></div><div class="line">            Single::singleMutex.lock();</div><div class="line">            <span class="keyword">if</span> (singleton == <span class="literal">nullptr</span>) &#123;</div><div class="line">                singleton = <span class="keyword">new</span> Singleton();</div><div class="line">              	<span class="comment">//解锁</span></div><div class="line">                singleMutex.unlock();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> singleton;</div><div class="line">        &#125;</div><div class="line">    <span class="keyword">private</span>:</div><div class="line">        Singleton() &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Create Instance..\n"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">static</span> Singleton *singleton;</div><div class="line">    &#125;;</div><div class="line">    Singleton* Singleton::singleton = <span class="literal">nullptr</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样的代码效率不高，原因是每次进入<code>if</code>之前都需要加锁，这样别的程序只能等待了，一种改进的方法是进行两次<code>if</code>判断，只有在<code>singleton == nullptr</code>时才加锁：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> Singleton* <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">  	<span class="comment">//对象已经创建就不加锁</span></div><div class="line">	<span class="keyword">if</span> (singleton == <span class="literal">nullptr</span>) &#123;</div><div class="line">    	Single::singleMutex.lock();</div><div class="line">        <span class="keyword">if</span> (singleton == <span class="literal">nullptr</span>) &#123;</div><div class="line">        	singleton = <span class="keyword">new</span> Singleton();</div><div class="line">            singleMutex.unlock();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">   	<span class="keyword">return</span> singleton;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样的实现已经基本满足需求，还有没有其他的实现方式？</p>
+<h2 id="其他实现方式"><a href="#其他实现方式" class="headerlink" title="其他实现方式"></a>其他实现方式</h2><p>静态变量初始化只会调用一次，因此我们可以在静态变量初始时就直接创建。不需要在<code>getInstance</code>函数里创建。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Singleton2 &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="function"><span class="keyword">static</span> Singleton2* <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">   		<span class="keyword">return</span> singleton;</div><div class="line">    &#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    Singleton2() &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Create Instance..\n"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> Singleton2 *singleton;</div><div class="line">&#125;;</div><div class="line">Singleton2* Singleton2::singleton = <span class="keyword">new</span> Singleton2();</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -411,15 +407,9 @@ $$
       
         <div class="post-tags">
           
-            <a href="/tags/机器学习/" rel="tag">#机器学习</a>
+            <a href="/tags/C/" rel="tag">#C++</a>
           
-            <a href="/tags/梯度下降法/" rel="tag">#梯度下降法</a>
-          
-            <a href="/tags/线性模型/" rel="tag">#线性模型</a>
-          
-            <a href="/tags/逻辑回归/" rel="tag">#逻辑回归</a>
-          
-            <a href="/tags/最大似然/" rel="tag">#最大似然</a>
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -428,17 +418,13 @@ $$
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/31/从线性回归谈机器学习的几个重要问题/" rel="next" title="从线性回归谈机器学习的几个重要问题">
-                <i class="fa fa-chevron-left"></i> 从线性回归谈机器学习的几个重要问题
+              <a href="/2017/03/04/矩阵求导方法/" rel="next" title="矩阵求导方法">
+                <i class="fa fa-chevron-left"></i> 矩阵求导方法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/14/《代码整洁之道》读书笔记（一）/" rel="prev" title="《代码整洁之道》读书笔记（一）——命名与函数">
-                《代码整洁之道》读书笔记（一）——命名与函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -453,10 +439,10 @@ $$
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/08/07/广义线性模型与逻辑回归/"
-     data-title="广义线性模型与逻辑回归"
+        <div class="ds-share flat" data-thread-key="2017/03/08/单例模式/"
+     data-title="单例模式"
      data-content=""
-     data-url="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/">
+     data-url="http://rosen.xyz/2017/03/08/单例模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -483,8 +469,8 @@ $$
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/07/广义线性模型与逻辑回归/"
-           data-title="广义线性模型与逻辑回归" data-url="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/">
+      <div class="ds-thread" data-thread-key="2017/03/08/单例模式/"
+           data-title="单例模式" data-url="http://rosen.xyz/2017/03/08/单例模式/">
       </div>
     
   </div>
@@ -586,7 +572,7 @@ $$
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#广义线性模型"><span class="nav-number">1.</span> <span class="nav-text">广义线性模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑回归"><span class="nav-number">2.</span> <span class="nav-text">逻辑回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大似然"><span class="nav-number">3.</span> <span class="nav-text">最大似然</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初步实现"><span class="nav-number">1.</span> <span class="nav-text">初步实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#适用于多线程"><span class="nav-number">3.</span> <span class="nav-text">适用于多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他实现方式"><span class="nav-number">4.</span> <span class="nav-text">其他实现方式</span></a></li></ol></div>
             
           </div>
         </section>

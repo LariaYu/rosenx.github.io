@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="机器学习,梯度下降法,线性模型,逻辑回归,最大似然," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -88,18 +88,15 @@
 
 
 
-<meta name="description" content="广义线性模型上一篇文章中介绍了线性模型：$$y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$    y">
-<meta property="og:type" content="article">
-<meta property="og:title" content="广义线性模型与逻辑回归">
-<meta property="og:url" content="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/index.html">
+<meta name="description" content="一些学习上的总结与思考">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rosen">
+<meta property="og:url" content="http://rosen.xyz/tags/设计模式/index.html">
 <meta property="og:site_name" content="Rosen">
-<meta property="og:description" content="广义线性模型上一篇文章中介绍了线性模型：$$y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$    y">
-<meta property="og:image" content="http://rosen.xyz/./sigmoid.png">
-<meta property="og:updated_time" content="2017-03-03T09:24:40.049Z">
+<meta property="og:description" content="一些学习上的总结与思考">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="广义线性模型与逻辑回归">
-<meta name="twitter:description" content="广义线性模型上一篇文章中介绍了线性模型：$$y = \theta ^ \mathrm{T} x \tag{1}$$该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：$$    \ln{y} = \theta ^ \mathrm{T} x \tag{2}$$更一般地，考虑单调可微函数 $ f(\cdot) $，令$$    y">
-<meta name="twitter:image" content="http://rosen.xyz/./sigmoid.png">
+<meta name="twitter:title" content="Rosen">
+<meta name="twitter:description" content="一些学习上的总结与思考">
 
 
 
@@ -120,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/"/>
+  <link rel="canonical" href="http://rosen.xyz/tags/设计模式/"/>
 
-  <title> 广义线性模型与逻辑回归 | Rosen </title>
+  <title> 标签: 设计模式 | Rosen </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -153,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -241,239 +238,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                广义线性模型与逻辑回归
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-07T16:48:54+08:00" content="2016-08-07">
-              2016-08-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/07/广义线性模型与逻辑回归/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/广义线性模型与逻辑回归/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/07/广义线性模型与逻辑回归/" class="leancloud_visitors" data-flag-title="广义线性模型与逻辑回归">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h3 id="广义线性模型"><a href="#广义线性模型" class="headerlink" title="广义线性模型"></a>广义线性模型</h3><p>上一篇文章中介绍了线性模型：<br>$$<br>y = \theta ^ \mathrm{T} x \tag{1}<br>$$<br>该模型虽然简单，但却富于变化。例如，假设样例对应的输出在指数上变化，我们可以将输出的对数作为逼近目标得到对数回归模型，即：<br>$$<br>    \ln{y} = \theta ^ \mathrm{T} x \tag{2}<br>$$<br>更一般地，考虑<strong>单调可微</strong>函数 $ f(\cdot) $，令<br>$$<br>    y = f ^ {-1} (\theta ^ \mathrm{T} x) \tag{3}<br>$$<br>即可得到<strong>广义线性模型</strong>。其中 $ f(\cdot) $ 的作用是联系模型输出与样例真实标记，称之为联系函数。</p>
-<a id="more"></a>
-<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>根据上面理论，如果能找到一个函数使得线性回归产生的预测值 $ z = \theta ^ {T} x $ 映射到真实标记 $ \lbrace 0, 1 \rbrace $ 中，即可将线性模型用于分类任务。最理想的是单位阶跃函数：<br>$$<br>    y =<br>    \begin{cases}<br>    0,  &amp; \text{ $ z $ &lt; 0 } \\<br>    0.5, &amp; \text{ $ z $ = 0}  \\<br>    1, &amp; \text{ $ z $ &gt; 0} \\<br>    \end{cases}<br>    \tag{4}<br>$$<br>但是该函数不可导，不能作为式（3）中的 $ f ^ {-1} (\cdot) $。Sigmoid函数是一个常用的替代方案：<br>$$<br>    g(z) = \frac {1} {1 + e ^ {-z}} \tag{5}<br>$$<br>该函数将$ z $映射到 $ (0, 1) $ 之间，$ g(0) = 0.5 $，其函数如下图所示：</p>
-<p><div align="center"><br>    <img src="./sigmoid.png" alt="sigmoid函数" align="center"><br></div><br>可认为$ g(z) $的值为样本属于正类的概率，则若 $ z &gt; 0.5$，则判定该样本为正类，$ z &lt; 0.5 $判定该样本为负类。将 $ g(z) $ 作为 $f ^ {-1}$ 代入式（3）中得到假设函数：<br>$$<br>    h(x) = \frac {1} {1 + e ^ {-\theta ^ \mathrm{T} x}} \tag{6}<br>$$<br>该模型便称之为<strong>逻辑回归</strong>。剩下的问题就是求解 $ \theta $了。</p>
-<h3 id="最大似然"><a href="#最大似然" class="headerlink" title="最大似然"></a>最大似然</h3><p>上节提到逻辑回归的模型输出 $ h(x) $ 可看作样本 $x$ 属于正类的后验概率，那么属于负类的后验概率自然是 $ 1 - h(x) $，用概率的形式可表示为：<br>
-$$
-\begin{align}
-    &p(y = 1 | x; \theta) = h(x)   \\\
-    &p(y = 0 | x; \theta) = 1 - h(x)
-\end{align}\tag{7}
-$$
-于是求解 $ \theta $ 相当于参数估计，可用最大似然法。
-
-给定数据集 $ \lbrace (x_ i, y_ i) \rbrace{i = 1} ^ {m}$，似然函数为：
-$$
-    l(\theta) = \sum_ {i = 1} ^ {m} \ln{p(y_ i|x_ i; \theta)} \tag{8}
-$$
-其中：
-$$
-    \ln{p(y_ i|x_ i; \theta)} = 
-    \begin{cases}
-    \ln{p(y_ i = 1| x_ i; \theta)} = \ln{h(x ^ {i})}, &\text{ $ y_ i $ = 1 } \\
-    \ln{p(y_ i = 0| x_ i; \theta)} = \ln{(1 - h(x ^ {i}))}, &\text{ $ y_ i $ = 0 }
-    \end{cases}
-    \tag {9}
-$$
-根据式（9），式（8）可重写为：
-$$
-    l(\theta) = 
-    \sum_ {i = 1} ^ {m} y_ i \ln{h(x ^ {i})} + (1 - y_ i) \ln {(1 - h(x ^ {i}))} \tag{10}
-$$
-问题即变成：
-$$
-    \max_ {\theta} l(\theta) \tag{11}
-$$
-令 $ J(\theta) = -l(\theta) $，式（11）等同于：
-$$
-    \min_ {\theta} J(\theta) = 
-    \sum_ {i = 1} ^ {m} -y_ i \ln{h(x ^ {i})} - (1 - y_ i) \ln {(1 - h(x ^ {i}))} \tag{12}
-$$
-因为式（12）中的两项对于每个 $ i $ 不能同时取到，并且 $ -\ln{x} $ 与 $ -\ln{(1 - x)} $均为单调函数，故 $ J(\theta) $ 为凸函数（凸函数的线性叠加也是凸函数），可用梯度下降法求得最优解。
-
-其过程为：
-$$
-\begin{align}
-    &\text{Repeat until convergence}\lbrace\\
-    &\qquad \theta_ j = \theta_ j - \alpha \sum_ {i = 1} ^ {m} (h(x^{i}) - y ^ {i}) x_ {j} ^ {i} 
-    &\qquad(j = 0,1,2,\cdots,n) \\
-    &\rbrace\\
-\end{align}
-$$
-</p>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        设计模式
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2017/03/08/单例模式/" itemprop="url">
+              
+                <span itemprop="name">单例模式</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-03-08T20:58:09+08:00"
+              content="2017-03-08" >
+          03-08
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/机器学习/" rel="tag">#机器学习</a>
-          
-            <a href="/tags/梯度下降法/" rel="tag">#梯度下降法</a>
-          
-            <a href="/tags/线性模型/" rel="tag">#线性模型</a>
-          
-            <a href="/tags/逻辑回归/" rel="tag">#逻辑回归</a>
-          
-            <a href="/tags/最大似然/" rel="tag">#最大似然</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/07/31/从线性回归谈机器学习的几个重要问题/" rel="next" title="从线性回归谈机器学习的几个重要问题">
-                <i class="fa fa-chevron-left"></i> 从线性回归谈机器学习的几个重要问题
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/14/《代码整洁之道》读书笔记（一）/" rel="prev" title="《代码整洁之道》读书笔记（一）——命名与函数">
-                《代码整洁之道》读书笔记（一）——命名与函数 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/08/07/广义线性模型与逻辑回归/"
-     data-title="广义线性模型与逻辑回归"
-     data-content=""
-     data-url="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
+    
   </div>
-</div>
-      
-    </div>
-  </div>
+
+  
 
 
           </div>
@@ -481,14 +285,6 @@ $$
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/08/07/广义线性模型与逻辑回归/"
-           data-title="广义线性模型与逻辑回归" data-url="http://rosen.xyz/2016/08/07/广义线性模型与逻辑回归/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -508,17 +304,8 @@ $$
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/pic.jpg"
@@ -579,17 +366,6 @@ $$
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#广义线性模型"><span class="nav-number">1.</span> <span class="nav-text">广义线性模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑回归"><span class="nav-number">2.</span> <span class="nav-text">逻辑回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大似然"><span class="nav-number">3.</span> <span class="nav-text">最大似然</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -686,10 +462,6 @@ $$
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
