@@ -96,7 +96,7 @@
 <meta property="og:description" content="机器学习算法中经常使用拉格朗日乘子法求解最优化问题，如PCA，SVM等。有时候还会用到拉格朗日的对偶问题（SVM中通过求解对偶问题得到原始问题的解）。这几天看了周志华西瓜书的附录和凸优化这本书的相关章节，现对拉格朗日及其对偶问题总结如下。">
 <meta property="og:image" content="http://rosen.xyz/./grad.jpg">
 <meta property="og:image" content="http://rosen.xyz/./contour.jpg">
-<meta property="og:updated_time" content="2017-03-19T05:49:39.008Z">
+<meta property="og:updated_time" content="2017-03-20T00:45:21.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="拉格朗日乘子法及其对偶问题">
 <meta name="twitter:description" content="机器学习算法中经常使用拉格朗日乘子法求解最优化问题，如PCA，SVM等。有时候还会用到拉格朗日的对偶问题（SVM中通过求解对偶问题得到原始问题的解）。这几天看了周志华西瓜书的附录和凸优化这本书的相关章节，现对拉格朗日及其对偶问题总结如下。">
@@ -341,10 +341,9 @@
         <p>机器学习算法中经常使用拉格朗日乘子法求解最优化问题，如PCA，SVM等。有时候还会用到拉格朗日的对偶问题（SVM中通过求解对偶问题得到原始问题的解）。这几天看了周志华西瓜书的附录和凸优化这本书的相关章节，现对拉格朗日及其对偶问题总结如下。</p>
 <a id="more"></a>
 <h2 id="拉格朗日函数及KKT条件"><a href="#拉格朗日函数及KKT条件" class="headerlink" title="拉格朗日函数及KKT条件"></a>拉格朗日函数及KKT条件</h2><p>优化问题都可以化成以下标准形式：<br>$$<br>\begin{align}<br>min &amp;\,\,\,\,\,f(x) \\<br>s.t.   &amp;\,\,\,\,\,h_i(x)=0 &amp;i=1,2,3,\cdots,p  \\<br>&amp;\,\,\,\,\,g_j(x)\le 0&amp;j=1,2,3,\cdots,q<br>\end{align}\tag{1}<br>$$<br>为简化问题，现将等式约束和不等式约束分开考虑</p>
-<h3 id="一个等式约束"><a href="#一个等式约束" class="headerlink" title="一个等式约束"></a>一个等式约束</h3><p>在高维空间中，一组等式约束确定的是一个超平面。假如只有一个等式约束$h(x)=0$，原始空间维数是$n$，则$h(x)=0$确定的就是一个$n-1$维的超平面。为方便描述，后面均假设只有一个等式约束。即：<br>$$<br>\begin{align}<br>min \,\,\,\,&amp;f(x) \\<br>s.t.   \,\,\,\,&amp; h(x)=0<br>\end{align}\tag{2}<br>$$</p>
-<p>那么，存在一下两条性质：</p>
+<h3 id="一个等式约束"><a href="#一个等式约束" class="headerlink" title="一个等式约束"></a>一个等式约束</h3><p>在高维空间中，一组等式约束确定的是一个超平面。假如只有一个等式约束$h(x)=0$，原始空间维数是$n$，则$h(x)=0$确定的就是一个$n-1$维的超平面。假设只有一个等式约束。即：<br>$$<br>\begin{align}<br>min \,\,\,\,&amp;f(x) \\<br>s.t.   \,\,\,\,&amp; h(x)=0<br>\end{align}\tag{2}<br>$$<br>那么，存在一下两条性质：</p>
 <ol>
-<li>点$x$在超平面$h(x)=0$上的梯度方向垂直与超平面方向</li>
+<li>点$x$在超平面$h(x)=0$上的梯度方向垂直于超平面方向</li>
 <li>如果$f(x)$的最优值在$x^*$处取得，则$f(x)$在该点的梯度必垂直与超平面$h(x)=0$</li>
 </ol>
 <p>要理解第一点，需要理解梯度的概念，梯度指明了一个方向，沿着这个方向走函数值上升最快。假如我们的函数是$f(x) = (x_1- 2)^2+x_2^2$，函数梯度是$\frac{\partial f(x)}{\partial x} = [\frac{\partial f(x)}{\partial x_1}, \frac{\partial f(x)}{\partial x_2}]^{\mathrm T}=[2(x_1-2), 2x_2]^{\mathrm T}$，即梯度向量与圆心$(2, 0)$到$(x_1,x_2)$的向量平行，所以任意一点的梯度在该点处与圆垂直。</p>
@@ -354,12 +353,12 @@
 <p>对于第二点，我们假设我们的超平面是二维平面上的一条直线$h(x)=x_1+x_2+\sqrt2=0$，我们的目标函数$f(x) =x_1^2+x_2^2$，则可以得到以下图形：</p>
 <p><img src="./contour.jpg" alt="性质2解释"></p>
 <p>$f(x)$在直线与圆相切时的切点处取得最小值，这是直线的梯度方向如红色箭头所示，圆的梯度如蓝色箭头所示。</p>
-<p>通过以上两条性质我们可知，当函数在超平面$h(x)=0$ 上一点$x^\ast$处取得最小值时，$\nabla f(x^\ast)$ 与 $\nabla h(x^\ast)$方向相反后相同，如果用数学的语言来描述这个结论就是，存在一个$\lambda$，使得：<br>$$<br>\nabla f(x^\ast)+\lambda \nabla h(x^\ast)=0 \tag{3}<br>$$</p>
+<p>通过以上两条性质我们可知，当函数在超平面$h(x)=0$ 上一点$x^\ast$处取得最小值时，$\nabla f(x^\ast)$ 与 $\nabla h(x^\ast)$方向相反或相同，如果用数学的语言来描述这个结论就是，存在一个$\lambda$，使得：<br>$$<br>\nabla f(x^\ast)+\lambda \nabla h(x^\ast)=0 \tag{3}<br>$$</p>
 <p>我们定义拉格朗日函数：<br>$$<br>L(x,\lambda)=f(x)+\lambda g(x) \tag{4}<br>$$</p>
 <p>上述等式实际上就是：<br>$$<br>\frac{\partial L(x,\lambda)}{\partial x}=\nabla f(x)+\lambda \nabla h(x)=0 \tag{5}<br>$$</p>
-<p>如果再对$\lambda​$求偏导并令其等于0，实际就得到了原始的等式约束：<br>$$<br>\frac{\partial L(x,\lambda)}{\partial \lambda}=h(x)=0 \tag{6}<br>$$<br>所以等式约束问题(1)可以通过联立(5)(6)求解</p>
+<p>如果再对$\lambda$求偏导并令其等于0，实际就得到了原始的等式约束：<br>$$<br>\frac{\partial L(x,\lambda)}{\partial \lambda}=h(x)=0 \tag{6}<br>$$<br>所以等式约束问题(1)可以通过联立(5)(6)求解</p>
 <h3 id="多个等式约束"><a href="#多个等式约束" class="headerlink" title="多个等式约束"></a>多个等式约束</h3><p>当存在多个等式约束时，拉格朗日函数定义为：<br>$$<br>L(x,\lambda)=f(x)+\sum_i{\lambda_ih_i(x)}\tag{7}<br>$$</p>
-<p>它对$x$求偏导后有：<br>$$<br>\frac{\partial L(x, \lambda)}{\partial x}=\nabla f(x)+\sum_i{\lambda_i\nabla h_i(x)}=0 \tag{8}<br>$$<br>(8)和(5)虽然看起来不一样，但同样可以用解释(5)的方式来解释(8)。<strong>实际上，每个等式确定的超平面梯度方向的加和必定与多个等式确定的超平面垂直。</strong>我们可以举个简单例子来验证这一点，比如我们有两个等式，两个等式确定的平面都是一个面，那么这两个等式联合确定的超平面就是条线，由高中知识（不知道的去翻书）可知，这条直线比垂直于这两个平面的法向量所确定的平面。</p>
+<p>它对$x$求偏导后有：<br>$$<br>\frac{\partial L(x, \lambda)}{\partial x}=\nabla f(x)+\sum_i{\lambda_i\nabla h_i(x)}=0 \tag{8}<br>$$<br>(8)和(5)虽然看起来不一样，但同样可以用解释(5)的方式来解释(8)。<strong>实际上，每个等式确定的超平面梯度方向的加和必定与多个等式确定的超平面垂直。</strong>我们可以举个简单例子来验证这一点，比如我们有两个等式，两个等式确定的平面都是一个二维面，那么这两个等式联合确定的超平面就是条直线，由高中知识（不知道的去翻书）可知，这条直线垂直于这两个平面的法向量所确定的平面。</p>
 <p>也就是说多个等式约束问题，同样可以通过联立方程来解。</p>
 <h3 id="不等式约束"><a href="#不等式约束" class="headerlink" title="不等式约束"></a>不等式约束</h3><p>假设只有不等式约束：<br>$$<br>\begin{align}<br>min \,\,\,\,&amp;f(x) \\<br>s.t.   \,\,\,\,&amp; g_j(x)\le 0&amp;j=1,2,3,\cdots,q<br>\end{align}\tag{9}<br>$$<br>其拉格朗日函数形式是：<br>$$<br>L(x,\mu)=f(x)+\sum_j\mu_jg_j(x) \tag{10}<br>$$<br>多个不等式构成的可行域不再是一个超平面，而是一个体。这样的话令$f(x)$取最优的点$x^{\ast}$有两种情况：</p>
 <ol>
@@ -373,7 +372,7 @@
 <p>综上两种情况有：<br>$$<br>\begin{cases}<br>\mu_i \ge 0\\<br>g_i(x) \le0\\<br>\mu_ig_i(x)=0<br>\end{cases} \tag{11}<br>$$</p>
 <h3 id="KKT-条件"><a href="#KKT-条件" class="headerlink" title="KKT 条件"></a>KKT 条件</h3><p>前两节我们分别对等式和不等式进行了分析，现在我们考虑这两种约束都存在的情况。对于标准形式的优化问题（1），拉格朗日函数为：<br>$$<br>L(x,\lambda,\mu)= f(x) + \sum_{i=1}^{p} \lambda_i h_i(x) + \sum_{j=1}^{q} \mu_j g_i(x) \tag{12}<br>$$<br>则优化问题（1）取得最优值时须满足KKT最优性条件：</p>
 <p>$$<br>\begin{cases}<br>\nabla L(x^\ast, \lambda,\mu)=\nabla f(x^\ast)  + \sum_{i = 1}^{p}  \lambda_i\nabla h_i(x^\ast) + \sum_{j=1}^{q} \mu_j \nabla g_i(x^\ast)=0\\<br>h_i(x^\ast) = 0\\<br>\mu_j \ge 0 \\<br>g_j(x) \le 0\\<br>\mu_jg_j(x) = 0<br>\end{cases} \tag{13}<br>$$</p>
-<h2 id="拉格朗日对偶"><a href="#拉格朗日对偶" class="headerlink" title="拉格朗日对偶"></a>拉格朗日对偶</h2><h3 id="对偶函数的定义"><a href="#对偶函数的定义" class="headerlink" title="对偶函数的定义"></a>对偶函数的定义</h3><p>对于式（12）所示的拉格朗日函数，其对偶函数定义为：<br>$$<br>g(\lambda,\mu)=\mathrm{inf}_x ~L(x,\lambda, \mu) = \mathrm {inf} _x~ \lbrace f(x)+\sum_{i=1}^{p} \lambda_i h_i(x)+\sum_{j=1}^q \mu_j g_j(x) \rbrace \tag{14}<br>$$<br>其中$\mathrm {inf}$表示下界的意思。因为$h_i(x)=0$，$\mu_jg_j(x)=0$，故：<br>$$<br>g(\lambda,\mu) \le f(x^\ast) \le f(x) \tag{15}<br>$$<br>即对偶函数给出了问题(1)的一个下界。</p>
+<h2 id="拉格朗日对偶"><a href="#拉格朗日对偶" class="headerlink" title="拉格朗日对偶"></a>拉格朗日对偶</h2><h3 id="对偶函数的定义"><a href="#对偶函数的定义" class="headerlink" title="对偶函数的定义"></a>对偶函数的定义</h3><p>对于式（12）所示的拉格朗日函数，其对偶函数定义为：<br>$$<br>g(\lambda,\mu)=\mathrm{inf}_x ~L(x,\lambda, \mu) = \mathrm {inf} _x~ \lbrace f(x)+\sum_{i=1}^{p} \lambda_i h_i(x)+\sum_{j=1}^q \mu_j g_j(x) \rbrace \tag{14}<br>$$<br>其中$\mathrm {inf}$表示下界的意思。因为$h_i(x)=0$，$g_j(x) \le 0$，故对于$\mu \ge0,\,\lambda$总有：<br>$$<br>g(\lambda,\mu) \le f(x^\ast) \le f(x) \tag{15}<br>$$<br>即对偶函数给出了问题(1)的一个下界。</p>
 <h3 id="对偶问题定义"><a href="#对偶问题定义" class="headerlink" title="对偶问题定义"></a>对偶问题定义</h3><p>既然对偶函数(14)给出了原始问题(1)的一个下界，那我们自然就想知道这个下界到底有多好，这就是拉格朗日对偶问题：<br>$$<br>\begin{align}<br>\max &amp;\,\,\,\,\, g(\lambda,\mu)\\<br>s.t.&amp;\,\,\,\,\, \mu\ge0<br>\end{align} \tag{16}<br>$$<br>下面我们通过两个例子讲解下怎么推导拉格朗日对偶问题：</p>
 <h4 id="1-线性方程组的最小二乘解"><a href="#1-线性方程组的最小二乘解" class="headerlink" title="1. 线性方程组的最小二乘解"></a>1. 线性方程组的最小二乘解</h4><p>$$<br>\begin{align}<br>\min&amp;\,\,\,\,\, x^{\mathrm T}x \\<br>s.t. &amp;\,\,\,\,\, Ax = b<br>\end{align} \tag{17}<br>$$</p>
 <p>该问题的拉格朗日函数是：<br>$$<br>L(x)=x^{\mathrm T}x+\lambda ^{\mathrm T}(Ax-b) \tag{18}<br>$$<br>从前面的讲解知道，这种只有等式约束的问题可以通过令$\nabla L(x) = 0$求解，而且$L(x)$是一个二次凸函数，其有唯一解，即：<br>$$<br>\nabla L(x) = 2x^{\mathrm T}+\lambda^{T}A=0<br>\to x = -\frac{1}{2}A^{\mathrm T}\lambda \tag{19}<br>$$<br>关于矩阵求导方法，请参考<a href="http://rosen.xyz/2017/03/04/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC%E6%96%B9%E6%B3%95/">矩阵求导</a></p>
